@@ -236,4 +236,36 @@ that, the feedforward of the angle controller is disabled. The following table c
 +--------------------------------------+------------------+------------------+------------------+
 
 Dataflash logs are used to obtain the fligth data. For the rate controller outputs the signals :ref:`RATE.ROut<RATE.ROut>`, :ref:`RATE.POut<RATE.POut>` and 
-:ref:`RATE.YOut<RATE.YOut>` are used. The signals :ref:`SIDD.Gx<SIDD.Gx>`, :ref:`SIDD.Gy<SIDD.Gy>` and :ref:`SIDD.Gz<SIDD.Gz>` correspond to the measured angular rates of the copter.
+:ref:`RATE.YOut<RATE.YOut>` are used. The signals :ref:`SIDD.Gx<SIDD.Gx>`, :ref:`SIDD.Gy<SIDD.Gy>` and :ref:`SIDD.Gz<SIDD.Gz>` correspond to the measured angular 
+rates of the copter.
+
+Through spectral analysis of the flight data, the frequency response of each axis is obtained. In order to achieve reliability, data from more than one flight is 
+used and a composite frequency response of the fused data is created. The following diagrams show the data-based frequency responses of all three axes. The bottom 
+plot shows the coherence between input and output which can be seen as a criteria for linearity between input and output.
+
+
+.. image:: ../images/bodeDataRll.PNG
+:name: fig-bode-data-rll
+
+
+.. image:: ../images/bodeDataPit.PNG
+:name: fig-bode-data-pit
+
+
+.. image:: ../images/bodeDataYaw.PNG
+:name: fig-bode-data-yaw
+
+Next, the composite frequency responses are used to determine the parameters of the :ref:`transfer function models<fig-eq-axis-models-Tf>`. An optimization is used 
+to adapt the parameters in a way that the frequency response of the transfer function fit the frequency response of data as good as possible. The result is shown in 
+the following three figures. 
+
+.. image:: ../images/bodeTfRll.PNG
+:name: fig-bode-data-rll
+
+
+.. image:: ../images/bodeTfPit.PNG
+:name: fig-bode-data-pit
+
+
+.. image:: ../images/bodeTfYaw.PNG
+:name: fig-bode-data-yaw
