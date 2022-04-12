@@ -244,28 +244,28 @@ used and a composite frequency response of the fused data is created. The follow
 plot shows the coherence between input and output which can be seen as a criteria for linearity between input and output.
 
 
-.. image:: ../images/bodeDataRll.PNG
+.. image:: ../images/bodeDataRll.png
 :name: fig-bode-data-rll
 
 
-.. image:: ../images/bodeDataPit.PNG
+.. image:: ../images/bodeDataPit.png
 :name: fig-bode-data-pit
 
 
-.. image:: ../images/bodeDataYaw.PNG
+.. image:: ../images/bodeDataYaw.png
 :name: fig-bode-data-yaw
 
 Next, the composite frequency responses are used to determine the parameters of the :ref:`transfer function models<fig-eq-axis-models-Tf>`. An optimization is used 
 to adapt the parameters in a way that the frequency response of the transfer function fit the frequency response of data as good as possible. The result is shown in 
 the following three figures. 
 
-.. image:: ../images/bodeTfRll.PNG
+.. image:: ../images/bodeTfRll.png
 :name: fig-bode-data-rll
 
 
-.. image:: ../images/bodeTfPit.PNG
+.. image:: ../images/bodeTfPit.png
 :name: fig-bode-data-pit
 
 
-.. image:: ../images/bodeTfYaw.PNG
+.. image:: ../images/bodeTfYaw.png
 :name: fig-bode-data-yaw
