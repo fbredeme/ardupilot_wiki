@@ -365,11 +365,11 @@ References
 -----------------------------
 
 .. rubric:: Footnotes
-.. [#f7] Philipp Niermeyer, Thomas Raffler and Florian Holzapfel: "Open-Loop Quadcopter Flight Dynamics Identification in Frequency Domain via Closed-Loop Flight Testing", München: Technische Universität München, 2015
-.. [#f8] Mark B. Tischler, Robert K. Remple: "Aircraft and Rotorcraft System Identifiation", 2006
-.. [#f2] Gabriele Perozzi et al.: "Trajectory Tracking for a quadrotor under wind perturbations: sliding mode control with state-dependent gains", 2018
 .. [#f1] Teodor Tomic: "Model-Based Contro of Flying Robots for Robust Interaction under Wind Influence", Hannover: Gottfried Wilhelm Leibniz Universität Hannover, 2018
+.. [#f2] Gabriele Perozzi et al.: "Trajectory Tracking for a quadrotor under wind perturbations: sliding mode control with state-dependent gains", 2018
 -- [#f3] Quan Quan: "Introduction to Multicopter Design and Control", Singapore: Springer Singapore, 2017
 -- [#f4] Wei Wei: "Development of an Effective System Identification and Control Capability for Quadcopter UAVs", Cincinnati: University of Cincinnati, 2015
 -- [#f5] Brijesh Raghavan and N. Ananthkrishnan: "Small-Perturbation Analysis of Airplane Dynamics with Dynamic Stability Derivatives Redefined", Blacksburg: Virginia Polytechnic Institute and State University, 2005
 -- [#f6] Sung H. Cho et al.: "System Identification and Controller Optimization of a Coaxial Quadrotor UAV in Hover", AIAA Scitech Forum, 2019
+.. [#f7] Philipp Niermeyer, Thomas Raffler and Florian Holzapfel: "Open-Loop Quadcopter Flight Dynamics Identification in Frequency Domain via Closed-Loop Flight Testing", München: Technische Universität München, 2015
+.. [#f8] Mark B. Tischler, Robert K. Remple: "Aircraft and Rotorcraft System Identifiation", 2006
