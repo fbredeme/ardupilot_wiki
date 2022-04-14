@@ -239,8 +239,9 @@ Dataflash logs are used to obtain the fligth data. For the rate controller outpu
 :ref:`RATE.YOut<RATE.YOut>` are used. The signals :ref:`SIDD.Gx<SIDD.Gx>`, :ref:`SIDD.Gy<SIDD.Gy>` and :ref:`SIDD.Gz<SIDD.Gz>` correspond to the measured angular 
 rates of the copter.
 
-Through spectral analysis of the flight data, the frequency response of each axis is obtained. In order to achieve reliability, data from more than one flight is 
-used and a composite frequency response of the fused data is created. The following diagrams show the data-based frequency responses of all three axes. The bottom 
+Through spectral analysis of the flight data, the frequency response of each axis is obtained. In order to achieve reliability of the model, several flights for 
+each axis are performed and an averaged frequency response is computed. It is important to note that only test flights with a sufficient coherence between and 
+output should be used. The following diagrams show the data-based frequency responses of all three axes. The bottom 
 plot shows the coherence between input and output which can be seen as a criteria for linearity between input and output.
 
 
