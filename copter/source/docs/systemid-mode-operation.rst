@@ -276,7 +276,7 @@ Identification Results and Model Verification
 ----------------------------------------------
 
 The system of a quadcopter in inherently instable. 
-Slight modeling errors or unconsidered external inputs of the real system therefore lead to divergence of the axis models (Ref. 1).
+Slight modeling errors or unconsidered external inputs of the real system therefore lead to divergence of the axis models [#f1]_.
 Since a model does never fully reproduce the behaviour of the real system, the model validation was conducted closed-loop with the same stabilize controller used during the test flights.
 For the validation test runs, the closed-loop model is given the exact same input signals that were given to the real system, which are the references for the stabilize controller (desired angle or rate in case of the yaw axis).
 The outputs of the models, namely the angular rates, are then compared to the measured system outputs during real flight.
@@ -330,3 +330,7 @@ References
 Ref 1: Philipp Niermeyer, Thomas Raffler and Florian Holzapfel: "Open-Loop Quadcopter Flight Dynamics Identification in Frequency Domain via Closed-Loop Flight Testing", München: Technische Universität München, 2015
 
 Ref 2: Mark B. Tischler, Robert K. Remple: "Aircraft and Rotorcraft System Identifiation", 2006
+
+.. rubric:: Footnotes
+.. [#f1] Philipp Niermeyer, Thomas Raffler and Florian Holzapfel: "Open-Loop Quadcopter Flight Dynamics Identification in Frequency Domain via Closed-Loop Flight Testing", München: Technische Universität München, 2015
+
