@@ -300,7 +300,7 @@ Yaw:
 :name: fig-val-sweep-yaw
 
 Since the frequency-sweeps were used for the identification, it is important to test the models against another test signal to check for their robustness.
-A widely recommended verification signal is the so called doublet maneuver that is basicly a double step (Ref 2).
+A widely recommended verification signal is the so called doublet maneuver that is basicly a double step [#f2]_.
 For time-domain validation, a similar signal is used as the input of the stabilize controller.
 As shown in the following figure for the roll axis, it consists of two consecutive doublet maneuvers.
 
@@ -327,10 +327,8 @@ Yaw:
 
 References
 -----------------------------
-Ref 1: Philipp Niermeyer, Thomas Raffler and Florian Holzapfel: "Open-Loop Quadcopter Flight Dynamics Identification in Frequency Domain via Closed-Loop Flight Testing", München: Technische Universität München, 2015
-
-Ref 2: Mark B. Tischler, Robert K. Remple: "Aircraft and Rotorcraft System Identifiation", 2006
 
 .. rubric:: Footnotes
 .. [#f1] Philipp Niermeyer, Thomas Raffler and Florian Holzapfel: "Open-Loop Quadcopter Flight Dynamics Identification in Frequency Domain via Closed-Loop Flight Testing", München: Technische Universität München, 2015
+.. [#f2] Mark B. Tischler, Robert K. Remple: "Aircraft and Rotorcraft System Identifiation", 2006
 
