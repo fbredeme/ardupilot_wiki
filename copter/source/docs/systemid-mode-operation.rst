@@ -285,14 +285,17 @@ Here, the desired angles of the stabilize controller are set to zero and the swe
 As can be seen in the following three figure, each model is capable of reproducing the measured angular rates.
 
 Roll:
+
 .. image:: ../images/modelValidationSweepRoll.png
 :name: fig-val-sweep-rll
 
 Pitch:
+
 .. image:: ../images/modelValidationSweepPitch.png
 :name: fig-val-sweep-pit
 
 Yaw:
+
 .. image:: ../images/modelValidationSweepYaw.png
 :name: fig-val-sweep-yaw
 
@@ -308,14 +311,17 @@ The next three figures contain the angular rates of the axis models compared to 
 Due to the high fitting between model outputs and measured angular rates, the fidelity of the models is seen as satisfactory.
 
 Roll:
+
 .. image:: ../images/modelValidationRollAng.png
 :name: fig-val-doublet-rll
 
 Pitch:
+
 .. image:: ../images/modelValidationPitchAng.png
 :name: fig-val-doublet-pit
 
 Yaw:
+
 .. image:: ../images/modelValidationYaw.png
 :name: fig-val-doublet-yaw
 
