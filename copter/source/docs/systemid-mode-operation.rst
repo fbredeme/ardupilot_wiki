@@ -107,7 +107,8 @@ System indentification will create a mathmatical model of the motor mixer, the m
 This mathmatical model is known as plant model in control literature.
 The frequency sweep inputs 10-12 are used for the identification, since they provide a direct input to the regarded system. 
 These inputs are less modified by the controllers when compared to the other chirp inputs.
-The magnitude of the chirp signal must be choosen to be bigger than the output magnitude of the rate controllers.
+It is important that the input control signal of the plant is persistently exciting, which means that the chirp is not cancelled out by the controller.
+The magnitude of the chirp signal must be choosen accordingly.
 This ensures that the waveforms at the inputs of the plant model are mostly chirp-like.
 With the default controller parameters, which are quite low, the magniture of the rate controller outputs are relatively low.
 
@@ -226,31 +227,13 @@ To prevent the rate controllers from compensating too much of the frequency-swee
 and the feedforward of the angle controller disabled:
 
 +-------------------------------------------+------------------------------+
-| Parameter                                 | Value                        |
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_RAT_RLL_P<ATC_RAT_RLL_P>`       | 0.135                        |                 
+| Parameter                                 | Value                        |             
 +-------------------------------------------+------------------------------+
 | :ref:`ATC_RAT_RLL_I<ATC_RAT_RLL_I>`       | 0                            |
 +-------------------------------------------+------------------------------+
-| :ref:`ATC_RAT_RLL_D<ATC_RAT_RLL_D>`       | 0.0036                       |
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_RAT_PIT_P<ATC_RAT_PIT_P>`       | 0.135                        |
-+-------------------------------------------+------------------------------+
 | :ref:`ATC_RAT_PIT_I<ATC_RAT_PIT_I>`       | 0                            |
 +-------------------------------------------+------------------------------+
-| :ref:`ATC_RAT_PIT_D<ATC_RAT_PIT_D>`       | 0.0036                       |
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_RAT_YAW_P<ATC_RAT_YAW_P>`       | 0.18                         |
-+-------------------------------------------+------------------------------+
 | :ref:`ATC_RAT_YAW_I<ATC_RAT_YAW_I>`       | 0                            |
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_RAT_YAW_D<ATC_RAT_YAW_D>`       | 0                            |
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_ANG_RLL_P<ATC_ANG_RLL_P>`       | 4.5                          |  
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_ANG_PIT_P<ATC_ANG_PIT_P>`       | 4.5                          |
-+-------------------------------------------+------------------------------+
-| :ref:`ATC_ANG_YAW_P<ATC_ANG_YAW_P>`       | 4.5                          |
 +-------------------------------------------+------------------------------+
 | :ref:`ATC_RATE_FF_ENAB<ATC_RATE_FF_ENAB>` | 0                            |
 +-------------------------------------------+------------------------------+
@@ -282,6 +265,8 @@ The following table contains the settings of the system identification mode for 
 +--------------------------------------+------------------+------------------+------------------+
 
 Change this values acording to the dynamic of your oun vehicle.
+The frequency range is chosen based on literature and flight tests.
+If using a heavier and larger system for instance, it may be necessary to use lower frequencies in order to excite the desired dynamics.
 
 Dataflash logs are used to obtain the fligth data.
 For the rate controller outputs the signals :ref:`RATE.ROut<RATE.ROut>`, :ref:`RATE.POut<RATE.POut>` and :ref:`RATE.YOut<RATE.YOut>` are used. 
