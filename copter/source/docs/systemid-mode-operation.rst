@@ -264,9 +264,10 @@ The following table contains the settings of the system identification mode for 
 | :ref:`SID_T_REC<SID_T_REC>`          | 130 s            | 130 s            | 130 s            |
 +--------------------------------------+------------------+------------------+------------------+
 
-Change this values acording to the dynamic of your oun vehicle.
-The frequency range is chosen based on literature and flight tests.
-If using a heavier and larger system for instance, it may be necessary to use lower frequencies in order to excite the desired dynamics.
+Change these values acording to the dynamic of your own vehicle.
+The frequency range was chosen based on literature and flight tests.
+If using a heavier and/or larger system, it may be necessary to use lower frequencies in order to excite the desired dynamics.
+If using a lighter and/or smaller system, it may be necessary to use higher frequencies.
 
 Dataflash logs are used to obtain the fligth data.
 For the rate controller outputs the signals :ref:`RATE.ROut<RATE.ROut>`, :ref:`RATE.POut<RATE.POut>` and :ref:`RATE.YOut<RATE.YOut>` are used. 
@@ -319,6 +320,9 @@ For the validation test runs, the closed-loop model is given the exact same inpu
 The outputs of the models, namely the angular rates, are then compared to the measured system outputs during real flight.
 First, it is examined if the models are able to reproduce the test signals, i.e. the frequency-sweeps.
 The desired angles of the stabilize controller are set to zero and the sweeps are directly added to the output of the rate controllers.
+
+In this chapter, the results for a relatively small quadcopter are presented.
+It weighs 1.5 kg, has an arm length of 22 cm and is equipped with 9 inch propellers.
 As seen in the following three figure, each model is capable of reproducing the measured angular rates.
 
 Roll:
