@@ -264,7 +264,7 @@ The following table contains the settings of the system identification mode for 
 | :ref:`SID_T_REC<SID_T_REC>`          | 130 s            | 130 s            | 130 s            |
 +--------------------------------------+------------------+------------------+------------------+
 
-Change these values acording to the dynamic of your own vehicle.
+Change these values according to the dynamic of your own vehicle.
 The frequency range was chosen based on literature and flight tests.
 If using a heavier and/or larger system, it may be necessary to use lower frequencies in order to excite the desired dynamics.
 If using a lighter and/or smaller system, it may be necessary to use higher frequencies.
