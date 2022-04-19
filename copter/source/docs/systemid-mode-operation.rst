@@ -273,6 +273,22 @@ Dataflash logs are used to obtain the fligth data.
 For the rate controller outputs the signals :ref:`RATE.ROut<RATE.ROut>`, :ref:`RATE.POut<RATE.POut>` and :ref:`RATE.YOut<RATE.YOut>` are used. 
 The signals :ref:`SIDD.Gx<SIDD.Gx>`, :ref:`SIDD.Gy<SIDD.Gy>` and :ref:`SIDD.Gz<SIDD.Gz>` correspond to the measured angular rates of the copter.
 
+The following figures show the injected frequency-sweep and the resulting control input of the plant, which is the sum of the sweep and the rate controller output.
+The plots for the roll and pitch axis show a reduction of the system excitation especially in the range of medium frequency.
+The reason for the sweep attentuation is the amplified controller output due to the larger magnitude of the system response (see :ref:`roll response<fig-bode-data-rll>` and :ref:`roll response<fig-bode-data-pit>`.
+Although attentuated, the system excitation is still large enough to obtain a reliable frequency response with a sufficiently high coherence as shown in the following paragraph.
+
+.. image:: ../images/rollSweepPlantInput.png
+:name: fig-sweep-rll
+
+
+.. image:: ../images/pitchSweepPlantInput.png
+:name: fig-sweep-pit
+
+
+.. image:: ../images/yawSweepPlantInput.png
+:name: fig-sweep-yaw
+
 The frequency response of each axis is obtained through spectral analysis of the flight data.
 Only test flights with a sufficient coherence between input and output are used for the system identification. 
 In order to increase the accuracy of the resulting plant model and to compensate for process errors, multiple flights for each axis are performed and an averaged frequency response is computed. 
