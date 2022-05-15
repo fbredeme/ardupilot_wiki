@@ -145,7 +145,7 @@ Based on these two quantities, the created forces and torques by the propulsion 
 .. image:: ../images/EquationForceTorqueAllocation.PNG
 :name: fig-eq-force-torque-prop
 
-where :math:`d` represents the arm length between the respecetive propeller and the airframe's center of gravity, while :math:`\varphi_i` stands for the angle of the propeller's arm in regard to the :math:`b_x` axis of the copter. [#f3]_
+where :math:`d` represents the arm length between the respective propeller and the airframe's center of gravity, while :math:`\varphi_i` stands for the angle of the propeller's arm in regard to the :math:`b_x` axis of the copter. [#f3]_
 :math:`\Gamma` is called the allocation matrix.
 The other forces :math:`F_{e}` and torques :math:`M_{e}` represent external effects on the airframe which is mainly drag due to translational flight. [#f9]_
 Estimating their influence on the states of the system poses a highly relevant target for the identification.
