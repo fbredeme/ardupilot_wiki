@@ -27,8 +27,11 @@ Because of this, the disturbance rejection is not optimized for the yaw axis.
 +------------------------------------+-----------------+---------------+----------------------+
 | Control Variable Max. Overshoot    | 80 %            | 10 %          | Smaller is better    |
 +------------------------------------+-----------------+---------------+----------------------+
-| Disturbance Rejection              | see graph below |not applied    | Smaller is better    |
+| Disturbance Rejection              | see :ref:`graph<fig-dist-reject-req>` below |not applied    | Smaller is better    |
 +------------------------------------+-----------------+---------------+----------------------+
 
 The frequency-based disturbance rejection in dezibel is shown below.
 As a reference, the blue line represents the rejection gain that is achieved with the default parameters of ArduCopter.
+
+.. image:: ../images/disturbanceRejectionRequirement.png
+:name: fig-dist-reject-req
