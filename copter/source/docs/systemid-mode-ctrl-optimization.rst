@@ -169,6 +169,7 @@ For a more precise evaluation of the performance, the following metrics from cla
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 
 The following table shows these metrics for all three controller variations for the roll axis.
+
 +----------------------------------------+------------------+------------------+-------------------+
 | Criteria                               | Default          | Optimized        | Autotune          |
 +----------------------------------------+------------------+------------------+-------------------+
