@@ -33,7 +33,7 @@ Because of this, the disturbance rejection is not optimized for the yaw axis.
 | Disturbance Rejection              | see graph below |not applied    | Smaller is better    |
 +------------------------------------+-----------------+---------------+----------------------+
 
-The frequency-based disturbance rejection in dezibel is shown below.
+The frequency-based disturbance rejection in decibel is shown below.
 As a reference, the blue line represents the rejection gain that is achieved with the default parameters of ArduCopter.
 
 .. image:: ../images/disturbanceRejectionRequirement.png
@@ -43,8 +43,9 @@ Optimization Results
 --------------------
 
 The following two tables shows the optimized flight controller parameters for the roll and yaw axis compared to the default parameters of ArduCopter.
+The defaults are also used as initial parameters for the optimization.
 As a reference, parameters obtained from the Autotune flight mode are also shown.
-It shows that the optimized parameters differ greatly from the Autotune parameters.
+It shows that the optimized parameters differ greatly from the default and Autotune parameters.
 
 Roll:
 
@@ -73,19 +74,32 @@ Yaw:
 +--------------------------------+-----------------------+----------------------+------------------------+
 | Parameter                      | Default               | Optimized            | Autotune               |
 +--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_P                  | 0.18                  | 0                    | 0.894938               |
+| ATC_RAT_RLL_P                  | 0.18                  | 0.0013               | 0.894938               |
 +--------------------------------+-----------------------+----------------------+------------------------+
 | ATC_RAT_RLL_I                  | 0.018                 | 0                    | 0.089494               |
 +--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_D                  | 0                     | 0.046                | 0                      |
+| ATC_RAT_RLL_D                  | 0                     | 0.041                | 0                      |
 +--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FF                 | 0                     | 0.0215               | 0                      |
+| ATC_RAT_RLL_FF                 | 0                     | 0.0183               | 0                      |
 +--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FLTT               | 23.0000               | 8.9583               | 23.0                   |
+| ATC_RAT_RLL_FLTT               | 23.0000               | 0                    | 23.0                   |
 +--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FLTD               | 0                     | 5                    | 23.0                   |
+| ATC_RAT_RLL_FLTD               | 0                     | 2.25                 | 23.0                   |
 +--------------------------------+-----------------------+----------------------+------------------------+
 | ATC_RAT_RLL_FLTE               | 0                     | 0                    | 3                      |
 +--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_ANG_RLL_P                  | 4.5                   | 18.3599              | 7.599                  |
+| ATC_ANG_RLL_P                  | 4.5                   | 19.6323              | 7.599                  |
 +--------------------------------+-----------------------+----------------------+------------------------+
+
+The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the control variables corresponding to the angle step and the disturbance behaviour for the roll axis.
+It is assumed that the disturbances act as external torques on the airframe.
+Therefore, the disturbance behaviour is simulated as a step on the control variables.
+
+.. image:: ../images/rollAxisTrackingSim.png
+:name: fig-track-roll-sim
+
+.. image:: ../images/rollAxisTrackingCtrlVarSim.png
+:name: fig-ctrlvar-roll-sim
+
+.. image:: ../images/rollAxisDisturbanceSim.png
+:name: fig-dist-roll-sim
