@@ -91,20 +91,24 @@ Yaw:
 | ATC_ANG_RLL_P                  | 4.5                   | 19.6323              | 7.599                  |
 +--------------------------------+-----------------------+----------------------+------------------------+
 
-The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the control variables corresponding to the angle step and the disturbance behaviour for the roll axis.
+The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the control variable corresponding to the angle step and the disturbance behaviour for the roll axis.
+The control variable is shown to evaluate whether the optimized behaviour can actually be realized by the real system.
 It is assumed that the disturbances act as external torques on the airframe.
 Therefore, the disturbance behaviour is simulated as a step on the control variables.
 
 Tracking Behaviour:
+
 .. image:: ../images/rollAxisTrackingSim.png
 :name: fig-track-roll-sim
 
 Control Variables:
+
 .. image:: ../images/rollAxisTrackingCtrlVarSim.png
 :name: fig-ctrlvar-roll-sim
 
 
 Disturbance Behaviour:
+
 .. image:: ../images/rollAxisDisturbanceSim.png
 :name: fig-dist-roll-sim
 
@@ -122,9 +126,18 @@ The next plots show the results for the yaw axis.
 Only the tracking behaviour is shown as the disturbance rejection was not optimized.
 
 Tracking Behaviour:
+
 .. image:: ../images/yawAxisTrackingSim.png
 :name: fig-track-yaw-sim
 
 Control Variables:
+
 .. image:: ../images/yawAxisTrackingCtrlVarSim.png
 :name: fig-ctrlvar-yaw-sim
+
+The :ref:`tracking behaviour<fig-track-yaw-sim>` is clearly improved by the optimization.
+It is faster than the controller parameterized by Autotune and does not produce any overshoot.
+Again, as the second :ref:`figure<fig-ctrlvar-yaw-sim>` illustrates, this is caused by a larger control variable.
+Though, its value stays in a acceptable range and is likely to be realizable in real flight.
+
+For a more precise evaluation of the performance, the following metrics from classic control theory are used:
