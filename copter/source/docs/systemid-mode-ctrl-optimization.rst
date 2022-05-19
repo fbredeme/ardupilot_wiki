@@ -164,7 +164,7 @@ For a more precise evaluation of the performance, the following metrics from cla
 | **Disturbance Rejection Overshoot**    | Exceedance of zero (= no system response to disturbance) expressed     |                                   |
 |                                        | in percentage of the disturbance step height.                          | Smaller is better                 |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
-| **Disturbance Rejection Settling Time**| Point of time after which the system response stays in 2% error       |                                   |
+| **Disturbance Rejection Settling Time**| Point of time after which the system response stays in 2% error        |                                   |
 |                                        | band around stationary state (= 0).                                    | Smaller is better                 |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 
