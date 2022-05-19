@@ -95,11 +95,36 @@ The next three plots show the simulation results for the tracking behaviour of a
 It is assumed that the disturbances act as external torques on the airframe.
 Therefore, the disturbance behaviour is simulated as a step on the control variables.
 
+Tracking Behaviour:
 .. image:: ../images/rollAxisTrackingSim.png
 :name: fig-track-roll-sim
 
+Control Variables:
 .. image:: ../images/rollAxisTrackingCtrlVarSim.png
 :name: fig-ctrlvar-roll-sim
 
+
+Disturbance Behaviour:
 .. image:: ../images/rollAxisDisturbanceSim.png
 :name: fig-dist-roll-sim
+
+In general, all figures show that the optimized parameters and the parameters obtained from Autotune lead to a much better controller performance.
+The first :ref:`figure<fig-track-roll-sim>` shows that the tracking behaviour of the optimized parameterization is the fastest and does produce less overshoot than the other two controller variants.
+This is achieved by a sharp rise in the control variable, as depicted in the second :ref:`figure<fig-ctrlvar-roll-sim>`. 
+Though, compared to Autotune, the control variable does not oscillate as much and decreases faster.
+This behaviour is easier to realize by the motors.
+Also, heavier oscillations in the control variables lead to more produces heat by the ESCs.
+Disturbances lead to a larger system response for the optimized parameterization compared to Autotune, as can be seen in the third :ref:`plot<fig-dist-roll-sim>`.
+Though, the rejection happens much faster.
+After two seconds, the copter has returned to the hover state.
+
+The next plots show the results for the yaw axis.
+Only the tracking behaviour is shown as the disturbance rejection was not optimized.
+
+Tracking Behaviour:
+.. image:: ../images/yawAxisTrackingSim.png
+:name: fig-track-yaw-sim
+
+Control Variables:
+.. image:: ../images/yawAxisTrackingCtrlVarSim.png
+:name: fig-ctrlvar-yaw-sim
