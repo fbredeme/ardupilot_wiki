@@ -149,11 +149,21 @@ For a more precise evaluation of the performance, the following metrics from cla
 |                                        | at a phase shift of -180° without the system losing                    | Larger is better                  |
 |                                        | stability. Needs to be positive for the system to be stable.           |                                   |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
-
-- **Gain Margin**: Amplitude gain reserve that can still be applied at a phase shift of -180° without the system losing stability. Needs to be positive for the system to be stable. 
-- **Phase Margin**: Phase shift reserve at an amplitude gain of 0 dB. Needs to be positive for the system to be stable. 
-- **Tracking Rise Time**: Time that the system response needs to go from 10% to 90% of the final step value.  
-- **Tracking Overshoot**: Exceedance of the final step value expressed in percentage of the desired step height. 
-- **Tracking Settling Time**: Point of time after which the system response stays in 2% error band around the final step value. 
-- **Disturbance Rejection Overshoot**: Exceedance of zero (= no system response to disturbance) expressed in percentage of the disturbance step height. 
-- **Disturbance Rejection Settling Time**: Point of time after which the system response stays in 2% error band around stationary state (= 0). 
+| **Phase Margin**                       | Phase shift reserve at an amplitude gain of 0 dB.                      |                                   |
+|                                        | Needs to be positive for the system to be stable.                      | Larger is better                  |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Tracking Rise Time**                 | Time that the system response needs to go from 10% to 90%              |                                   |
+|                                        | of the final step value.                                               | Smaller is better                 |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Tracking Overshoot**                 | Exceedance of the final step value expressed in percentage             |                                   |
+|                                        | of the desired step height.                                            | Smaller is better                 |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Tracking Settling Timet**            | Point of time after which the system response stays in 2% error band   |                                   |
+|                                        | around the final step value.                                           | Smaller is better                 |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Disturbance Rejection Overshoot**    | Exceedance of zero (= no system response to disturbance) expressed     |                                   |
+|                                        | in percentage of the disturbance step height.                          | Smaller is better                 |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Disturbance Rejection Settling Time**|  Point of time after which the system response stays in 2% error       |                                   |
+|                                        | band around stationary state (= 0).                                    | Smaller is better                 |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
