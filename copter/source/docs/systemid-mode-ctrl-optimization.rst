@@ -169,6 +169,14 @@ For a more precise evaluation of the performance, the following metrics from cla
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 
 The following table shows these metrics for all three controller variations for the roll axis.
+It shows that the default parameterization has the highest gain and phase margin due to its slow controller.
+All other criteria of the default parameters confirm the bad performance seen in the plots above.
+The last for metrics could not be computed since the controller is not able to reach the final step value for the tracking or to make the copter return to steady state in case of an disturbance respectively.
+The optimized controller still has very high gain and phase margins compared to the Autotune controller.
+It also produces a low tracking overshoot and is able to reach the 2% error band of the desired step value very quick.
+The Autotune controller shows a slightly faster rising time.
+The metrics for the disturbance rejection also reflect the plotted results above.
+While the overshoot of the Autotune is lower by a fair bit, the optimized controller only needs about halve the time to compensate the disturbance.
 
 +----------------------------------------+------------------+------------------+-------------------+
 | Criteria                               | Default          | Optimized        | Autotune          |
@@ -188,7 +196,10 @@ The following table shows these metrics for all three controller variations for 
 | Disturbance Rejection Settling Time (s)| n.a.             |	1.7150           |	3.4575           |
 +----------------------------------------+------------------+------------------+-------------------+
 
-blblblb
+The next table contains the metrics for the yaw axis.
+Again, the default controller shows the highest stability margins followed by the optimized parameterization and the Autotune controller with the lowest margins.
+Similar to the roll axis, the Autotune controller has a slightly shorter rise time.
+The optimized parameterization has no tracking overshoot at all und needs less time to reach the 2% error band of the final step value, as it was already the case for the roll axis.
 
 +----------------------------------------+------------------+------------------+-------------------+
 | Criteria                               | Default          | Optimized        | Autotune          |
