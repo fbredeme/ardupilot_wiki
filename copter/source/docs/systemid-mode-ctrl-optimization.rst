@@ -212,5 +212,5 @@ The optimized parameterization has no tracking overshoot at all und needs less t
 +-----------------------------+----------+-----------+----------+
 | Tracking Overshoot (%)      | 17.1561  | 0.0000    | 3.9608   |
 +-----------------------------+----------+-----------+----------+
-| Tracking Settling Time (s)  | 3.2548	 | 1.4168	   | 1.6474   |
+| Tracking Settling Time (s)  | 3.2548	 | 1.4168    | 1.6474   |
 +-----------------------------+----------+-----------+----------+
