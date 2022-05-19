@@ -3,7 +3,10 @@ Flight Controller Optimization
 
 Now that a model for the Quadcopter is available, the flight controller is optimized using a multi-objective optimization. 
 Since the model is linear, a control optimization tool for linear system analysis in MATLAB is applied. 
-In order to make the controller parameters adjustable by the optimization algorithm, the flight controller for the Stabilize mode has been modelled in MATLAB. 
+In order to make the controller parameters adjustable by the optimization algorithm, the flight controller for the Stabilize mode has been modelled in MATLAB.
+
+Optimization Goals
+------------------
 
 The following table shows the goals of the controller optimization.
 The dynamics of the roll and pitch axes are very similar. 
@@ -35,3 +38,52 @@ As a reference, the blue line represents the rejection gain that is achieved wit
 
 .. image:: ../images/disturbanceRejectionRequirement.png
 :name: fig-dist-reject-req
+
+Optimization Results
+--------------------
+
+The following two tables shows the optimized flight controller parameters for the roll and yaw axis compared to the default parameters of ArduCopter.
+As a reference, parameters obtained from the Autotune flight mode are also shown.
+It shows that the optimized parameters differ greatly from the Autotune parameters.
+
+Roll:
++--------------------------------+-----------------------+----------------------+------------------------+
+| Parameter                      | Default               | Optimized            | Autotune               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_P                  | 0.1350		             | 0.1496               | 0.240025               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_I                  | 0.1350		             | 0.8                  | 0.240025               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_D                  | 0.0036                | 0.0046               | 0.007948               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FF                 | 0                     | 0.007                | 0                      |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FLTT               | 23.0000               | 83.1821              | 5.0                    |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FLTD               | 23.0000               | 47.8274              | 23.0                   |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FLTE               | 0                     | 0                    | 0                      |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_ANG_RLL_P                  | 4.5                   | 10.6095              | 16.670347              |
++--------------------------------+-----------------------+----------------------+------------------------+
+
+YAW:
++--------------------------------+-----------------------+----------------------+------------------------+
+| Parameter                      | Default               | Optimized            | Autotune               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_P                  | 0.18		               | 0                    | 0.894938               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_I                  | 0.018		             | 0                    | 0.089494               |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_D                  | 0                     | 0.046                | 0                      |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FF                 | 0                     | 0.0215               | 0                      |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FLTT               | 23.0000               | 8.9583               | 23.0                   |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FLTD               | 0                     | 5                    | 23.0                   |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_RAT_RLL_FLTE               | 0                     | 0                    | 3                      |
++--------------------------------+-----------------------+----------------------+------------------------+
+| ATC_ANG_RLL_P                  | 4.5                   | 18.3599              | 16.670347              |
++--------------------------------+-----------------------+----------------------+------------------------+
