@@ -39,8 +39,8 @@ As a reference, the blue line represents the rejection gain that is achieved wit
 .. image:: ../images/disturbanceRejectionRequirement.png
 :name: fig-dist-reject-req
 
-Optimization Results
---------------------
+Optimization Results in the Simulation
+--------------------------------------
 
 The following two tables shows the optimized flight controller parameters for the roll and yaw axis compared to the default parameters of ArduCopter.
 The defaults are also used as initial parameters for the optimization.
@@ -141,3 +141,10 @@ Again, as the second :ref:`figure<fig-ctrlvar-yaw-sim>` illustrates, this is cau
 Though, its value stays in a acceptable range and is likely to be realizable in real flight.
 
 For a more precise evaluation of the performance, the following metrics from classic control theory are used:
+- **Gain Margin**: Amplitude gain reserve that can still be applied at a phase shift of -180° without the system losing stability. Needs to be positive for the system to be stable.
+- **Phase Margin**: Phase shift reserve at an amplitude gain of 0 dB. Needs to be positive for the system to be stable.
+- **Tracking Rise Time**: Time that the system response needs to go from 10% to 90% of the final step value.
+- **Tracking Overshoot**: Exceedance of the final step value expressed in percentage of the desired step height.
+- **Tracking Settling Time**: Point of time after which the system response stays in 2% error band around the final step value.
+- **Disturbaance Rejection Overshoot**: Exceedance of zero (= no system response to disturbance) expressed in percentage of the disturbance step height.
+- **Disturbaance Rejection Settling Time**: Point of time after which the system response stays in 2% error band around stationary state (= 0)
