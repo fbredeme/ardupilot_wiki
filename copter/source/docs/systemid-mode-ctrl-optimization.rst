@@ -211,7 +211,7 @@ While the overshoot of the Autotune is lower by a fair bit, the optimized contro
 +----------------------------------------+------------------+------------------+-------------------+
 | Disturbance Rejection Overshoot (%)    | 110.0415         |	45.4958          |	29.4360          |
 +----------------------------------------+------------------+------------------+-------------------+
-| Disturbance Rejection Settling Time (s)| n.a.             |	1.7150            |	3.4575           |
+| Disturbance Rejection Settling Time (s)| n.a.             |	1.7150           |	3.4575           |
 +----------------------------------------+------------------+------------------+-------------------+
 
 The next table contains the metrics for the yaw axis.
