@@ -196,6 +196,25 @@ While the overshoot of the Autotune is lower by a fair bit, the optimized contro
 | Disturbance Rejection Settling Time (s)| n.a.             |	1.7150           | 3.4575            |
 +----------------------------------------+------------------+------------------+-------------------+
 
+
++----------------------------------------+-----------+-----------+----------+
+| Criteria                               | Default   | Optimized | Autotune |
++----------------------------------------+-----------+-----------+----------+
+| Gain Margin (dB)                       | 13.9570   | 7.2258    | 1.9215   |
++----------------------------------------+-----------+-----------+----------+
+| Phase Margin (deg)                     | 79.3563   | 67.1429   | 50.2712  |
++----------------------------------------+-----------+-----------+----------+
+| Tracking Rise Time (s)                 | 8.3465    |	0.0687   | 0.0472   |
++----------------------------------------+-----------+-----------+----------+
+| Tracking Overshoot (%)                 | 0.0000    | 3.8430    | 27.4629  |
++----------------------------------------+-----------+-----------+----------+
+| Tracking Settling Time (s)             | n.a.      | 3.2720    | 7.6679   |
++----------------------------------------+-----------+-----------+----------+
+| Disturbance Rejection Overshoot (%)    | 110.0415  | 45.4958   | 29.4360  |
++----------------------------------------+-----------+-----------+----------+
+| Disturbance Rejection Settling Time (s)| n.a.      |	1.7150   | 3.4575   |
++----------------------------------------+-----------+-----------+----------+
+
 The next table contains the metrics for the yaw axis.
 Again, the default controller shows the highest stability margins followed by the optimized parameterization and the Autotune controller with the lowest margins.
 Similar to the roll axis, the Autotune controller has a slightly shorter rise time.
