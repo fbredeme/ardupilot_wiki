@@ -4,6 +4,8 @@ Flight Controller Optimization
 Now that a model for the Quadcopter is available, the flight controller is optimized using a multi-objective optimization. 
 Since the model is linear, a control optimization tool for linear system analysis in MATLAB is applied. 
 In order to make the controller parameters adjustable by the optimization algorithm, the flight controller for the Stabilize mode has been modelled in MATLAB.
+The following remarks regarding the optimization goals and results are **only valid for the examined quadcopter** with a weight of 1.5 kg, an arm length of 22 cm and 9 inch propellers. 
+The resulting parameters are only optimal for this copter configuration and **should not** be used for any other copter.
 
 Optimization Goals
 ------------------
