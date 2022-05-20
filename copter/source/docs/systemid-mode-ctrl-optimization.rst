@@ -197,8 +197,9 @@ While the overshoot of the Autotune is lower by a fair bit, the optimized contro
 +----------------------------------------+-----------+-----------+----------+
 
 The next table contains the metrics for the yaw axis.
-Again, the default controller shows the highest stability margins followed by the optimized parameterization and the Autotune controller with the lowest margins.
-Similar to the roll axis, the Autotune controller has a slightly shorter rise time.
+Again, the default controller shows the highest gain margin followed by the optimized parameterization and the Autotune controller with the lowest margins.
+Contrary to the roll axis, the optimized controller has the highest phase margin.
+Regarding the tracking behaviour, the Autotune controller has a slightly shorter rise time.
 The optimized parameterization has no tracking overshoot at all und needs less time to reach the 2% error band of the final step value, as it was already the case for the roll axis.
 
 +-----------------------------+----------+-----------+----------+
