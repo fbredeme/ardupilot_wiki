@@ -180,23 +180,23 @@ The Autotune controller shows a slightly faster rising time.
 The metrics for the disturbance rejection also reflect the plotted results above.
 While the overshoot of the Autotune is lower by a fair bit, the optimized controller only needs about halve the time to compensate the disturbance.
 
-+----------------------------------------+-----------+-----------+----------+
-| Criteria                               | Default   | Optimized | Autotune |
-+----------------------------------------+-----------+-----------+----------+
-| Gain Margin (dB)                       | 13.9570   | 7.2258    | 1.9215   |
-+----------------------------------------+-----------+-----------+----------+
-| Phase Margin (deg)                     | 79.3563   | 67.1429   | 50.2712  |
-+----------------------------------------+-----------+-----------+----------+
-| Tracking Rise Time (s)                 | 8.3465    |	0.0687   | 0.0472   |
-+----------------------------------------+-----------+-----------+----------+
-| Tracking Overshoot (%)                 | 0.0000    | 3.8430    | 27.4629  |
-+----------------------------------------+-----------+-----------+----------+
-| Tracking Settling Time (s)             | n.a.      | 3.2720    | 7.6679   |
-+----------------------------------------+-----------+-----------+----------+
-| Disturbance Rejection Overshoot (%)    | 110.0415  | 45.4958   | 29.4360  |
-+----------------------------------------+-----------+-----------+----------+
-| Disturbance Rejection Settling Time (s)| n.a.      |	1.7150   | 3.4575   |
-+----------------------------------------+-----------+-----------+----------+
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Criteria                               | Default   | Optimized | Autotune | Qualitive Target  |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Gain Margin (dB)                       | 13.9570   | 7.2258    | 1.9215   | Larger is better  |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Phase Margin (deg)                     | 79.3563   | 67.1429   | 50.2712  | Larger is better  |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Tracking Rise Time (s)                 | 8.3465    |	0.0687   | 0.0472   | Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Tracking Overshoot (%)                 | 0.0000    | 3.8430    | 27.4629  | Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Tracking Settling Time (s)             | n.a.      | 3.2720    | 7.6679   | Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Disturbance Rejection Overshoot (%)    | 110.0415  | 45.4958   | 29.4360  | Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Disturbance Rejection Settling Time (s)| n.a.      |	1.7150   | 3.4575   | Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
 
 The next table contains the metrics for the yaw axis.
 Again, the default controller shows the highest gain margin followed by the optimized parameterization and the Autotune controller with the lowest margins.
@@ -204,16 +204,16 @@ Contrary to the roll axis, the optimized controller has the highest phase margin
 Regarding the tracking behaviour, the Autotune controller has a slightly shorter rise time.
 The optimized parameterization has no tracking overshoot at all und needs less time to reach the 2% error band of the final step value, as it was already the case for the roll axis.
 
-+-----------------------------+----------+-----------+----------+
-| Criteria                    | Default  | Optimized | Autotune |
-+-----------------------------+----------+-----------+----------+
-| Gain Margin (dB)            | 25.9180	 | 11.3688   | 2.3542   |
-+-----------------------------+----------+-----------+----------+
-| Phase Margin (deg)          | 13.2705	 | 59.8237   | 7.9728   |
-+-----------------------------+----------+-----------+----------+
-| Tracking Rise Time (s)      | 0.4656	 | 0.2136    | 0.2097   |
-+-----------------------------+----------+-----------+----------+
-| Tracking Overshoot (%)      | 17.1561  | 0.0000    | 3.9608   |
-+-----------------------------+----------+-----------+----------+
-| Tracking Settling Time (s)  | 3.2548	 | 1.4168    | 1.6474   |
-+-----------------------------+----------+-----------+----------+
++-----------------------------+----------+-----------+----------+-------------------+
+| Criteria                    | Default  | Optimized | Autotune | Qualitive Target  |
++-----------------------------+----------+-----------+----------+-------------------+
+| Gain Margin (dB)            | 25.9180	 | 11.3688   | 2.3542   | Larger is better  |
++-----------------------------+----------+-----------+----------+-------------------+
+| Phase Margin (deg)          | 13.2705	 | 59.8237   | 7.9728   | Larger is better  |
++-----------------------------+----------+-----------+----------+-------------------+
+| Tracking Rise Time (s)      | 0.4656	 | 0.2136    | 0.2097   | Smaller is better |
++-----------------------------+----------+-----------+----------+-------------------+
+| Tracking Overshoot (%)      | 17.1561  | 0.0000    | 3.9608   | Smaller is better |
++-----------------------------+----------+-----------+----------+-------------------+
+| Tracking Settling Time (s)  | 3.2548	 | 1.4168    | 1.6474   | Smaller is better |
++-----------------------------+----------+-----------+----------+-------------------+
