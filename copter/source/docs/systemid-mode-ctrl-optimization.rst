@@ -180,6 +180,7 @@ For a more precise evaluation of the performance, the following metrics from cla
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 
 The following table shows these metrics for all three controller variations for the roll axis.
+Bold numbers show the best result of the respective category.
 It shows that the default parameterization has the highest gain and phase margin due to its slow controller.
 All other criteria of the default parameters confirm the bad performance seen in the plots above.
 The last for metrics could not be computed since the controller is not able to reach the final step value for the tracking or to make the copter return to steady state in case of an disturbance respectively.
