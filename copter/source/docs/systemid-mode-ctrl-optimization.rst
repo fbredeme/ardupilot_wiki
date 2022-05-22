@@ -147,6 +147,8 @@ For a more precise evaluation of the performance, the following metrics from cla
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 | Criteria                               | Description                                                            | Qualitive Target                  |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Bandwidth**                          | First frequency where the amplitude gain drops below -3  dB            | Larger is better                  |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 | **Gain Margin**                        | Amplitude gain reserve that can still be applied                       |                                   |
 |                                        | at a phase shift of -180° without the system losing                    | Larger is better                  |
 |                                        | stability. Needs to be positive for the system to be stable.           |                                   |
@@ -190,23 +192,25 @@ While the overshoot of the Autotune is lower by a fair bit, the optimized contro
 +----------------------------------------+-----------+-----------+----------+-------------------+
 | Criteria                               | Default   | Optimized | Autotune | Qualitive Target  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Gain Margin (dB) at f_pc               | 13.9570   | 7.2258    | 1.9215   | Larger is better  |
+| Bandwidth (Hz)                         | 0.92      | 5.94      | **8.7**  | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Phase Margin (deg) at f_gc             | 79.3563   | 67.1429   | 50.2712  | Larger is better  |
+| Gain Margin (dB) at f_pc               | **13.96** | 7.23      | 1.92     | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Phase crossover frequency f_pc (Hz)    | 5.1       | 5.72      | 6.32     | neutral           |
+| Phase Margin (deg) at f_gc             | **79.36** | 67.14     | 50.27    | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Gain crossover frequency f_gc (Hz)     | 0.73      | 2.11      | 2.52     | Larger is better  |
+| Phase crossover frequency f_pc (Hz)    | 5.01      | 5.72      | 6.32     | neutral           |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Rise Time (s)                 | 8.3465    |	0.0687   | 0.0472   | Smaller is better |
+| Gain crossover frequency f_gc (Hz)     | 0.75      | 2.11      | **2.52** | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Overshoot (%)                 | 0.0000    | 3.8430    | 27.4629  | Smaller is better |
+| Tracking Rise Time (s)                 | 8.35      |	0.069    | **0.047**| Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Settling Time (s)             | n.a.      | 3.2720    | 7.6679   | Smaller is better |
+| Tracking Overshoot (%)                 | 0.00      | **3.84**  | 27.46    | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Disturbance Rejection Overshoot (%)    | 110.0415  | 45.4958   | 29.4360  | Smaller is better |
+| Tracking Settling Time (s)             | n.a.      | **3.27**  | 7.6679   | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Disturbance Rejection Settling Time (s)| n.a.      |	1.7150   | 3.4575   | Smaller is better |
+| Disturbance Rejection Overshoot (%)    | 110.04    | 45.5      | **29.44**| Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Disturbance Rejection Settling Time (s)| n.a.      |	**1.72** | 3.46     | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
 
 The next table contains the metrics for the yaw axis.
@@ -218,17 +222,19 @@ The optimized parameterization has no tracking overshoot at all und needs less t
 +----------------------------------------+-----------+-----------+----------+-------------------+
 | Criteria                               | Default   | Optimized | Autotune | Qualitive Target  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Gain Margin (dB) at f_pc               | 25.9180   | 11.3688   | 2.3542   | Larger is better  |
+| Bandwidth (Hz)                         | 0.73      | **1.84**  | 1.58     | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Phase Margin (deg) at f_gc             | 13.2705   | 59.8237   | 7.972    | Larger is better  |
+| Gain Margin (dB) at f_pc               | **25.92** | 11.37     | 2.35     | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Phase crossover frequency f_pc (Hz)    | 3.05      |	5.9      | 3.01     | neutral           |
+| Phase Margin (deg) at f_gc             | 13.27     | **59.82** | 7.97     | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Gain crossover frequency f_gc (Hz)     | 0.55      |	1.84     | 1.76     | Larger is better  |
+| Phase crossover frequency f_pc (Hz)    | 3.01      |	5.9      | 3.01     | neutral           |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Rise Time (s)                 | 0.4656    | 0.2136    | 0.2097   | Smaller is better |
+| Gain crossover frequency f_gc (Hz)     | 0.55      |	**1.84** | 1.76     | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Overshoot (%)                 | 17.1561   | 0.0000    | 3.9608   | Smaller is better |
+| Tracking Rise Time (s)                 | 0.47      | 0.214     | **0.21** | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Settling Time (s)             | 3.2548    | 1.4168    | 1.6474   | Smaller is better |
+| Tracking Overshoot (%)                 | 17.16     | **0.00**  | 3.96     | Smaller is better |
++----------------------------------------+-----------+-----------+----------+-------------------+
+| Tracking Settling Time (s)             | 3.25      | **1.42**  | 1.65     | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
