@@ -154,6 +154,13 @@ For a more precise evaluation of the performance, the following metrics from cla
 | **Phase Margin**                       | Phase shift reserve at an amplitude gain of 0 dB.                      |                                   |
 |                                        | Needs to be positive for the system to be stable.                      | Larger is better                  |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Phase Crossing Frequency**           | Frequency at which the phase shift curve crosses -180°                 | Neutral                           |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
+| **Gain Crossing Frequncy**             | Frequency at which the amplitude gain crosses 0 dB. A larger crossing  | Larger is better                  |
+|                                        | frequency means that closed control loop has a larger cutoff frequency |                                   |
+|                                        | as well. As a consequency, the closed-loop has a quicker reaction to   |                                   |
+|                                        | changes of the desired value or of disturbances                        |                                   |
++----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 | **Tracking Rise Time**                 | Time that the system response needs to go from 10% to 90%              |                                   |
 |                                        | of the final step value.                                               | Smaller is better                 |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
