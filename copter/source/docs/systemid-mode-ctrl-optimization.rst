@@ -1,24 +1,23 @@
-Flight Controller Optimization
-==============================
+Multicopter Flight Controller Optimization
+==========================================
 
-Now that a model for the Quadcopter is available from System ID Mode <systemid-mode-operation>, the flight controller is optimized using a multi-objective optimization. 
+After a mathematical model for the Multicopter is determined using System ID Mode <systemid-mode-operation>, the PID flight controller parameters are optimized using a multi-objective optimization. 
 Since the model is linear, a control optimization tool for linear system analysis in MATLAB is applied. 
-In order to make the controller parameters adjustable by the optimization algorithm, the flight controller for the Stabilize mode has been modelled in MATLAB.
-The following remarks regarding the optimization goals and results are **only valid for the examined quadcopter** with a weight of 1.5 kg, an arm length of 22 cm and 9 inch propellers. 
-The resulting parameters are specifically applicable for this copter configuration and **should not** be used for any other copter.
+To make the controller parameters adjustable by the optimization algorithm, the PID flight controllers for the stabilize flight mode has been modelled in MATLAB.
+The following sections regarding the optimization goals and results are **only valid for the examined quadcopter** with a weight of 1.5 kg, an arm length of 22 cm and 9 inch propellers. 
+The resulting parameters are specifically applicable for this copter configuration and **must not** be used for any other copter.
 
 Optimization Goals
 ------------------
 
-The following table shows the goals of the controller optimization.
+The following table shows the goals/requirements of the controller optimization.
 The dynamics of the roll and pitch axes are very similar. 
 Therefore, identicial goal are applied to both axes.
 The yaw axis behaves quite differently. 
-It is assumed that disturbances due to translational motion and wind mainly influence the pitch and roll axes.
-Because of this, the disturbance rejection is not optimized for the yaw axis.
+It is assumed that disturbances due to translational motion and wind mainly influence the pitch and roll axes, hence the disturbance rejection is not optimized for the yaw axis.
 
 +------------------------------------+-----------------+---------------+----------------------+
-| Goal                               | Pitch & Roll    | Yaw           | Optimization Target  |
+| Requirement Goal                   | Pitch & Roll    | Yaw           | Optimization Target  |
 +------------------------------------+-----------------+---------------+----------------------+
 | Phase Margin                       | 30°             | 30°           | Larger is better     |
 +------------------------------------+-----------------+---------------+----------------------+
@@ -35,8 +34,9 @@ Because of this, the disturbance rejection is not optimized for the yaw axis.
 | Disturbance Rejection              | see graph below |not applied    | Smaller is better    |
 +------------------------------------+-----------------+---------------+----------------------+
 
-The frequency-based disturbance rejection in decibel is shown below.
+The frequency-based disturbance rejection curve in decibel is shown below.
 As a reference, the blue line represents the rejection gain that is achieved with the default parameters of ArduCopter.
+The optimized system is required to stay bellow the yellow area to have a better disturbance rejection.
 
 .. image:: ../images/disturbanceRejectionRequirement.png
 :name: fig-dist-reject-req
@@ -44,59 +44,10 @@ As a reference, the blue line represents the rejection gain that is achieved wit
 Optimization Results in the Simulation
 --------------------------------------
 
-The following two tables shows the optimized flight controller parameters for the roll and yaw axis compared to the default parameters of ArduCopter.
-The defaults are also used as initial parameters for the optimization.
-As a reference, parameters obtained from the Autotune flight mode are also shown.
-It shows that the optimized parameters differ greatly from the default and Autotune parameters.
-
-Roll:
-
-+--------------------------------+-----------------------+----------------------+------------------------+
-| Parameter                      | Default               | Optimized            | Autotune               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_P                  | 0.1350                | 0.1496               | 0.240025               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_I                  | 0.1350                | 0.8                  | 0.240025               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_D                  | 0.0036                | 0.0046               | 0.007948               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FF                 | 0                     | 0.007                | 0                      |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FLTT               | 23.0000               | 83.1821              | 5.0                    |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FLTD               | 23.0000               | 47.8274              | 23.0                   |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_RLL_FLTE               | 0                     | 0                    | 0                      |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_ANG_RLL_P                  | 4.5                   | 10.6095              | 16.670347              |
-+--------------------------------+-----------------------+----------------------+------------------------+
-
-Yaw:
-
-+--------------------------------+-----------------------+----------------------+------------------------+
-| Parameter                      | Default               | Optimized            | Autotune               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_P                  | 0.18                  | 0.0013               | 0.894938               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_I                  | 0.018                 | 0                    | 0.089494               |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_D                  | 0                     | 0.041                | 0                      |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_FF                 | 0                     | 0.0183               | 0                      |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_FLTT               | 23.0000               | 0                    | 23.0                   |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_FLTD               | 0                     | 2.25                 | 23.0                   |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_RAT_YAW_FLTE               | 0                     | 0                    | 3                      |
-+--------------------------------+-----------------------+----------------------+------------------------+
-| ATC_ANG_YAW_P                  | 4.5                   | 19.6323              | 7.599                  |
-+--------------------------------+-----------------------+----------------------+------------------------+
-
-The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the control variable corresponding to the angle step and the disturbance behaviour for the roll axis.
-The control variable is shown to evaluate whether the optimized behaviour can actually be realized by the real system.
+The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the normalized controler output corresponding to the angle step and the disturbance behaviour for the roll axis.
+The normalized controler output evaluates whether the optimized behaviour can actually be realized by the real system.
 It is assumed that the disturbances act as external torques on the airframe.
-Therefore, the disturbance behaviour is simulated as a step on the control variables.
+Therefore, the disturbance behaviour is simulated as a step added to the controller output signal.
 
 Tracking Behaviour:
 
@@ -114,18 +65,18 @@ Disturbance Behaviour:
 .. image:: ../images/rollAxisDisturbanceSim.png
 :name: fig-dist-roll-sim
 
-In general, all figures show that the optimized parameters and the parameters obtained from Autotune lead to a much better controller performance.
-The first :ref:`figure<fig-track-roll-sim>` shows that the tracking behaviour of the optimized parameterization is the fastest and does produce less overshoot than the other two controller variants.
+In general, all figures show that the optimized parameters and the parameters obtained from autotune lead to a much better controller performance.
+The first :ref:`figure<fig-track-roll-sim>` shows that the tracking behaviour of the optimized parameterization is the fastest and does produce less overshoot than the other two controller parameter variants.
 This is achieved by a sharp rise in the control variable, as depicted in the second :ref:`figure<fig-ctrlvar-roll-sim>`. 
-Though, compared to Autotune, the control variable does not oscillate as much and decreases faster.
-This behaviour is easier to realize by the motors.
-Also, heavier oscillations in the control variables lead to more produces heat by the ESCs.
-Disturbances lead to a larger system response for the optimized parameterization compared to Autotune, as can be seen in the third :ref:`plot<fig-dist-roll-sim>`.
-Though, the rejection happens much faster.
-After two seconds, the copter has returned to the hover state.
+Though, compared to Autotune, the control output does not oscillate as much and decreases faster.
+This behaviour is easier to get executed by the motors, hence more desirable than the one from the autotuned parameters.
+Heavier oscillations in the controler outputs lead to higher ESC temperatures and higher risk of ESC de-sync issues.
+Disturbances lead to a larger system response for the optimized parameterization compared to autotune, as can be seen in the third :ref:`plot<fig-dist-roll-sim>`.
+Though, the disturbance rejection happens much faster.
+After two seconds, the vehicle has returned to the hover state.
 
 The next plots show the results for the yaw axis.
-Only the tracking behaviour is shown as the disturbance rejection was not optimized.
+Only the input tracking behaviour is shown as the disturbance rejection was not optimized.
 
 Tracking Behaviour:
 
@@ -138,11 +89,11 @@ Control Variables:
 :name: fig-ctrlvar-yaw-sim
 
 The :ref:`tracking behaviour<fig-track-yaw-sim>` is clearly improved by the optimization.
-It is faster than the controller parameterized by Autotune and does not produce any overshoot.
-Again, as the second :ref:`figure<fig-ctrlvar-yaw-sim>` illustrates, this is caused by a larger control variable.
-Though, its value stays in a acceptable range and is likely to be realizable in real flight.
+It is faster than the controller parameterized by autotune and does not produce any overshoot.
+Again, as the second :ref:`figure<fig-ctrlvar-yaw-sim>` illustrates, this is caused by a larger controler output.
+Though, its value stays in a acceptable range and is realizable in real flight.
 
-For a more precise evaluation of the performance, the following metrics from classic control theory are used:
+For performance evaluation, the following metrics from classic control theory are used:
 
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 | Criteria                               | Description                                                            | Qualitive Target                  |
@@ -179,16 +130,16 @@ For a more precise evaluation of the performance, the following metrics from cla
 |                                        | band around stationary state (= 0).                                    | Smaller is better                 |
 +----------------------------------------+------------------------------------------------------------------------+-----------------------------------+
 
-The following table shows these metrics for all three controller variations for the roll axis.
+The following table shows these metrics for all three controller parameter variations for the roll axis.
 Bold numbers show the best result of the respective category.
 It shows that the default parameterization has the highest gain and phase margin due to its slow controller.
 All other criteria of the default parameters confirm the bad performance seen in the plots above.
-The last four metrics could not be computed since the controller is not able to reach the final step value for the tracking or to make the copter return to steady state in case of an disturbance respectively.
+The last four metrics could not be computed since the controller is not able to reach the final step value for the tracking or to make the vehicle return to steady state in case of an disturbance respectively.
 The optimized controller still has very high gain and phase margins compared to the Autotune controller.
 It also produces a low tracking overshoot and is able to reach the 2% error band of the desired step value very quick.
-The Autotune controller shows a slightly faster rising time which also corresponds to the higher bandwidth and gain crossover frequency of the controller with the Autotune settings.
+The Autotune controller shows a slightly faster rising time which also corresponds to the higher bandwidth and gain crossover frequency of the controller with the autotune settings.
 The metrics for the disturbance rejection also reflect the plotted results above.
-While the overshoot of the Autotune is lower by a fair bit, the optimized controller only needs about halve the time to compensate the disturbance.
+While the disturbance rejection overshoot of the autotune is lower by a fair bit, the optimized controller only needs about halve the time to compensate the disturbance.
 
 +----------------------------------------+-----------+-----------+----------+-------------------+
 | Criteria                               | Default   | Optimized | Autotune | Qualitive Target  |
@@ -215,10 +166,10 @@ While the overshoot of the Autotune is lower by a fair bit, the optimized contro
 +----------------------------------------+-----------+-----------+----------+-------------------+
 
 The next table contains the metrics for the yaw axis.
-Again, the default controller shows the highest gain margin followed by the optimized parameterization and the Autotune controller with the lowest margins.
+Again, the default controller shows the highest gain margin followed by the optimized parameterization and the autotune controller with the lowest margins.
 Contrary to the roll axis, the optimized controller has the highest phase margin and the highest bandwidth as well.
 Regarding the tracking behaviour, the Autotune controller has a slightly shorter rise time.
-The optimized parameterization has no tracking overshoot at all und needs less time to reach the 2% error band of the final step value, as it was already the case for the roll axis.
+The optimized parameterization has no tracking overshoot at all and needs less time to reach the 2% error band of the final step value, as it was already the case for the roll axis.
 
 +----------------------------------------+-----------+-----------+----------+-------------------+
 | Criteria                               | Default   | Optimized | Autotune | Qualitive Target  |
@@ -239,3 +190,54 @@ The optimized parameterization has no tracking overshoot at all und needs less t
 +----------------------------------------+-----------+-----------+----------+-------------------+
 | Tracking Settling Time (s)             | 3.25      | **1.42**  | 1.65     | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
+
+The following two tables show the optimized flight controller parameters for the roll and yaw axis compared to the default parameters of ArduCopter.
+The defaults are also used as initial parameters for the optimization.
+As a reference, parameters obtained from an autotune flight with :ref:`AUTOTUNE_AGGR<AUTOTUNE_AGGR>` = 0.1 are also shown.
+It shows that the optimized parameters differ greatly from the default and autotune parameters.
+Again remember that the presented results are **only valid for the examined quadcopter** with a weight of 1.5 kg, an arm length of 22 cm and 9 inch propellers. 
+The resulting parameters are specifically applicable for this copter configuration and **must not** be used for any other copter.
+
+Roll:
+
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| Parameter                                 | Default               | Optimized            | Autotune               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_P<ATC_RAT_RLL_P>`       | 0.1350                | 0.1496               | 0.240025               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_I<ATC_RAT_RLL_I>`       | 0.1350                | 0.8                  | 0.240025               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_D<ATC_RAT_RLL_D>`       | 0.0036                | 0.0046               | 0.007948               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_FF<ATC_RAT_RLL_FF>`     | 0                     | 0.007                | 0                      |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_FLTT<ATC_RAT_RLL_FLTT>` | 23.0000               | 83.1821              | 5.0                    |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_FLTD<ATC_RAT_RLL_FLTD>` | 23.0000               | 47.8274              | 23.0                   |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_RLL_FLTE<ATC_RAT_RLL_FLTE>` | 0                     | 0                    | 0                      |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_ANG_RLL_P<ATC_ANG_RLL_P>`       | 4.5                   | 10.6095              | 16.670347              |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+
+Yaw:
+
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| Parameter                                 | Default               | Optimized            | Autotune               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_P<ATC_RAT_YAW_P>`       | 0.18                  | 0.0013               | 0.894938               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_I<ATC_RAT_YAW_I>`       | 0.018                 | 0                    | 0.089494               |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_D<ATC_RAT_YAW_D>`       | 0                     | 0.041                | 0                      |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_FF<ATC_RAT_YAW_FF>`     | 0                     | 0.0183               | 0                      |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_FLTT<ATC_RAT_YAW_FLTT>` | 23.0000               | 0                    | 23.0                   |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_FLTD<ATC_RAT_YAW_FLTD>` | 0                     | 2.25                 | 23.0                   |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_RAT_YAW_FLTE<ATC_RAT_YAW_FLTE>` | 0                     | 0                    | 3                      |
++-------------------------------------------+-----------------------+----------------------+------------------------+
+| :ref:`ATC_ANG_YAW_P<ATC_ANG_YAW_P>`       | 4.5                   | 19.6323              | 7.599                  |
++-------------------------------------------+-----------------------+----------------------+------------------------+
