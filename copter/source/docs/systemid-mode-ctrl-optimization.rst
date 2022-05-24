@@ -44,8 +44,8 @@ The optimized system is required to stay bellow the yellow area to have a better
 Optimization Results in the Simulation
 --------------------------------------
 
-The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the normalized controler output corresponding to the angle step and the disturbance behaviour for the roll axis.
-The normalized controler output evaluates whether the optimized behaviour can actually be realized by the real system.
+The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the normalized controller output corresponding to the angle step and the disturbance behaviour for the roll axis.
+The normalized controller output evaluates whether the optimized behaviour can actually be realized by the real system.
 It is assumed that the disturbances act as external torques on the airframe.
 Therefore, the disturbance behaviour is simulated as a step added to the controller output signal.
 
