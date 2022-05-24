@@ -70,7 +70,7 @@ The first :ref:`figure<fig-track-roll-sim>` shows that the tracking behaviour of
 This is achieved by a sharp rise in the control variable, as depicted in the second :ref:`figure<fig-ctrlvar-roll-sim>`. 
 Though, compared to Autotune, the control output does not oscillate as much and decreases faster.
 This behaviour is easier to get executed by the motors, hence more desirable than the one from the autotuned parameters.
-Heavier oscillations in the controler outputs lead to higher ESC temperatures and higher risk of ESC de-sync issues.
+Heavier oscillations in the controller outputs lead to higher ESC temperatures and higher risk of ESC de-sync issues.
 Disturbances lead to a larger system response for the optimized parameterization compared to autotune, as can be seen in the third :ref:`plot<fig-dist-roll-sim>`.
 Though, the disturbance rejection happens much faster.
 After two seconds, the vehicle has returned to the hover state.
@@ -90,7 +90,7 @@ Control Variables:
 
 The :ref:`tracking behaviour<fig-track-yaw-sim>` is clearly improved by the optimization.
 It is faster than the controller parameterized by autotune and does not produce any overshoot.
-Again, as the second :ref:`figure<fig-ctrlvar-yaw-sim>` illustrates, this is caused by a larger controler output.
+Again, as the second :ref:`figure<fig-ctrlvar-yaw-sim>` illustrates, this is caused by a larger controller output.
 Though, its value stays in a acceptable range and is realizable in real flight.
 
 For performance evaluation, the following metrics from classic control theory are used:
