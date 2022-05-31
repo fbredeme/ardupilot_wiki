@@ -81,7 +81,12 @@ Though, the disturbance rejection happens much faster.
 After two seconds, the vehicle has returned to the hover state.
 
 The next plots show the results for the yaw axis.
-Only the input tracking behaviour is shown as the disturbance rejection was not optimized.
+Only the bode plot and the input tracking behaviour is shown as the disturbance rejection was not optimized.
+
+Bode plot of the closed-loop system:
+
+.. image:: ../images/rollAxisClosedLoopBode.png
+:name: fig-bode-cl-system-yaw
 
 Tracking Behaviour:
 
