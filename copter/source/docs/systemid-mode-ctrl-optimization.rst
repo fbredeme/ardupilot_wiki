@@ -85,7 +85,7 @@ Only the bode plot and the input tracking behaviour is shown as the disturbance 
 
 Bode plot of the closed-loop system:
 
-.. image:: ../images/rollAxisClosedLoopBode.png
+.. image:: ../images/yawAxisClosedLoopBode.png
 :name: fig-bode-cl-system-yaw
 
 Tracking Behaviour:
