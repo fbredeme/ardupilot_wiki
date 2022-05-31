@@ -19,9 +19,9 @@ It is assumed that disturbances due to translational motion and wind mainly infl
 +------------------------------------+-----------------+---------------+----------------------+
 | Requirement Goal                   | Pitch & Roll    | Yaw           | Optimization Target  |
 +------------------------------------+-----------------+---------------+----------------------+
-| Phase Margin                       | 30°             | 30°           | Larger is better     |
+| Phase Margin                       | 50°             | 50°           | Larger is better     |
 +------------------------------------+-----------------+---------------+----------------------+
-| Gain Margin                        | 5 dB            | 5 dB          | Larger is better     |
+| Gain Margin                        | 7 dB            | 7 dB          | Larger is better     |
 +------------------------------------+-----------------+---------------+----------------------+
 | Step Response: Response Time       | 0.02 s          | 0.2s          | Smaller is better    |
 +------------------------------------+-----------------+---------------+----------------------+
@@ -44,17 +44,22 @@ The optimized system is required to stay bellow the yellow area to have a better
 Optimization Results in the Simulation
 --------------------------------------
 
-The next three plots show the simulation results for the tracking behaviour of a 10 degree step, the normalized controller output corresponding to the angle step and the disturbance behaviour for the roll axis.
+The next four plots show the bode plot of the closed-loop system the simulation results for the tracking behaviour of a 10 degree step, the normalized controller output corresponding to the angle step as well as the disturbance behaviour for the roll axis.
 The normalized controller output evaluates whether the optimized behaviour can actually be realized by the real system.
 It is assumed that the disturbances act as external torques on the airframe.
 Therefore, the disturbance behaviour is simulated as a step added to the controller output signal.
+
+Bode plot of the closed-loop system:
+
+.. image:: ../images/rollAxisClosedLoopBode.png
+:name: fig-bode-cl-system
 
 Tracking Behaviour:
 
 .. image:: ../images/rollAxisTrackingSim.png
 :name: fig-track-roll-sim
 
-Control Variables:
+Controller Output:
 
 .. image:: ../images/rollAxisTrackingCtrlVarSim.png
 :name: fig-ctrlvar-roll-sim
@@ -144,25 +149,25 @@ While the disturbance rejection overshoot of the autotune is lower by a fair bit
 +----------------------------------------+-----------+-----------+----------+-------------------+
 | Criteria                               | Default   | Optimized | Autotune | Qualitive Target  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Bandwidth (Hz)                         | 0.92      | 5.94      | **8.7**  | Larger is better  |
+| Bandwidth (Hz)                         | 0.92      | 5.14      | **8.66** | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Gain Margin (dB) at f_pc               | **13.96** | 7.23      | 1.92     | Larger is better  |
+| Gain Margin (dB) at f_pc               | **13.96** | 8.65      | 1.85     | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Phase Margin (deg) at f_gc             | **79.36** | 67.14     | 50.27    | Larger is better  |
+| Phase Margin (deg) at f_gc             | **79.36** | 56.75     | 50.19    | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Phase crossover frequency f_pc (Hz)    | 5.01      | 5.72      | 6.32     | neutral           |
+| Phase crossover frequency f_pc (Hz)    | 5.01      | 5.94      | 6.35     | neutral           |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Gain crossover frequency f_gc (Hz)     | 0.75      | 2.11      | **2.52** | Larger is better  |
+| Gain crossover frequency f_gc (Hz)     | 0.75      | 2.3       | **2.52** | Larger is better  |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Rise Time (s)                 | 8.35      |	0.069    | **0.047**| Smaller is better |
+| Tracking Rise Time (s)                 | 8.35      |	0.068    | **0.047**| Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Overshoot (%)                 | 0.00      | **3.84**  | 27.46    | Smaller is better |
+| Tracking Overshoot (%)                 | 0.00      | **6.57**  | 29.49    | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Tracking Settling Time (s)             | n.a.      | **3.27**  | 7.6679   | Smaller is better |
+| Tracking Settling Time (s)             | n.a.      | **1.81**  | 7.67     | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Disturbance Rejection Overshoot (%)    | 110.04    | 45.5      | **29.44**| Smaller is better |
+| Disturbance Rejection Overshoot (%)    | 110.04    | 46.61     | **29.92**| Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
-| Disturbance Rejection Settling Time (s)| n.a.      |	**1.72** | 3.46     | Smaller is better |
+| Disturbance Rejection Settling Time (s)| n.a.      |	**1.39** | 3.46     | Smaller is better |
 +----------------------------------------+-----------+-----------+----------+-------------------+
 
 The next table contains the metrics for the yaw axis.
@@ -203,21 +208,21 @@ Roll:
 +-------------------------------------------+-----------------------+----------------------+------------------------+
 | Parameter                                 | Default               | Optimized            | Autotune               |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_RAT_RLL_P<ATC_RAT_RLL_P>`       | 0.1350                | 0.1496               | 0.240025               |
+| :ref:`ATC_RAT_RLL_P<ATC_RAT_RLL_P>`       | 0.1350                | 0.123                | 0.240025               |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_RAT_RLL_I<ATC_RAT_RLL_I>`       | 0.1350                | 0.8                  | 0.240025               |
+| :ref:`ATC_RAT_RLL_I<ATC_RAT_RLL_I>`       | 0.1350                | 1.0                  | 0.240025               |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_RAT_RLL_D<ATC_RAT_RLL_D>`       | 0.0036                | 0.0046               | 0.007948               |
+| :ref:`ATC_RAT_RLL_D<ATC_RAT_RLL_D>`       | 0.0036                | 0.0053               | 0.007948               |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_RAT_RLL_FF<ATC_RAT_RLL_FF>`     | 0                     | 0.007                | 0                      |
+| :ref:`ATC_RAT_RLL_FF<ATC_RAT_RLL_FF>`     | 0                     | 0                    | 0                      |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_RAT_RLL_FLTT<ATC_RAT_RLL_FLTT>` | 23.0000               | 83.1821              | 5.0                    |
+| :ref:`ATC_RAT_RLL_FLTT<ATC_RAT_RLL_FLTT>` | 23.0000               | 50.256               | 5.0                    |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_RAT_RLL_FLTD<ATC_RAT_RLL_FLTD>` | 23.0000               | 47.8274              | 23.0                   |
+| :ref:`ATC_RAT_RLL_FLTD<ATC_RAT_RLL_FLTD>` | 23.0000               | 55.557               | 23.0                   |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
 | :ref:`ATC_RAT_RLL_FLTE<ATC_RAT_RLL_FLTE>` | 0                     | 0                    | 0                      |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
-| :ref:`ATC_ANG_RLL_P<ATC_ANG_RLL_P>`       | 4.5                   | 10.6095              | 16.670347              |
+| :ref:`ATC_ANG_RLL_P<ATC_ANG_RLL_P>`       | 4.5                   | 11.6480              | 16.670347              |
 +-------------------------------------------+-----------------------+----------------------+------------------------+
 
 Yaw:
