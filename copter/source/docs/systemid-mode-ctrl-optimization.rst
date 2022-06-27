@@ -48,7 +48,7 @@ The optimized system is required to stay bellow the yellow area to have a better
 Optimization Results in the Simulation
 --------------------------------------
 
-The next four plots show the bode plot of the closed-loop system the simulation results for the tracking behavior of a 10 degree step, the normalized controller output corresponding to the angle step as well as the disturbance behavior for the roll axis.
+The next four plots show the bode plot of the closed-loop system, the simulation results for the tracking behavior of a 10 degree step, the normalized controller output corresponding to the angle step, and the disturbance behavior for the roll axis.
 The normalized controller output evaluates whether the optimized behavior can actually be realized by the real system.
 It is assumed that the disturbances act as external torques on the airframe.
 Therefore, the disturbance behavior is simulated as a step added to the controller output signal.
