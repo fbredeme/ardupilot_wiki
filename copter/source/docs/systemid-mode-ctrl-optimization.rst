@@ -7,7 +7,7 @@ Multicopter Flight Controller Optimization
 
 After a mathematical model for the Multicopter is determined using System ID Mode <systemid-mode-operation>, the PID flight controller parameters are optimized using a multi-objective optimization.
 Since the model is linear, a control optimization tool for linear system analysis in MATLAB is applied.
-To make the controller parameters adjustable by the optimization algorithm, the PID flight controllers for the stabilize flight mode has been modeled in MATLAB.
+To make the controller parameters adjustable by the optimization algorithm, the PID flight controllers for the stabilize flight mode have been modeled in MATLAB.
 The following sections regarding the optimization goals and results are **only valid for the examined quadcopter** with a weight of 1.5 kg, an arm length of 22 cm and 9 inch propellers.
 The resulting parameters are specifically applicable for this copter configuration and **must not** be used for any other copter.
 
