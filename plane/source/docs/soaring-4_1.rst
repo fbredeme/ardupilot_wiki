@@ -135,7 +135,7 @@ Altitude limits
 Spatial limits
 ~~~~~~~~~~~~~~
 
-The parameter :ref:`SOAR_MAX_DRIFT<SOAR_MAX_DRIFT>` can be used to limit how far (in metres) the aircraft can drift while in THERMAL mode. If the airfraft reaches this limit in THERMAL mode, it will revert to the original flight mode.
+The parameter :ref:`SOAR_MAX_DRIFT<SOAR_MAX_DRIFT>` can be used to limit how far (in metres) the aircraft can drift while in THERMAL mode. If the aircraft reaches this limit in THERMAL mode, it will revert to the original flight mode.
 
 If the original flight mode was FBWB or CRUISE mode, the drift distance is measured from the location THERMAL was entered.
 
@@ -214,6 +214,14 @@ and then begin a gliding descent. Watch the telemetry graphs or look at the Data
 ``TECS.sp`` and ``TECS.spdem``, and via telemetry you can use ``NAV_CONTROLLER_OUTPUT.aspd_error``. Problems can usually be fixed
 by increasing ``PTCH2SRV_IMAX`` and :ref:`TECS_INTEG_GAIN<TECS_INTEG_GAIN>` to achieve good airspeed
 tracking in gliding flight.
+
+Speed to Fly Feature
+====================
+
+.. toctree::
+    :maxdepth: 1
+
+    Soaring speed to fly <soaring-speed-to-fly>
 
 Notes
 =====

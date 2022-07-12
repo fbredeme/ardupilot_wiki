@@ -1,6 +1,6 @@
 .. _common-non-gps-navigation-landing-page:
 
-[copywiki destination="copter,rover"]
+[copywiki destination="copter,rover,blimp"]
 
 ==================
 Non-GPS Navigation
@@ -18,7 +18,8 @@ These are the available options that allow a vehicle to estimate its position wi
     MarvelMind Beacons <common-marvelmind>
     Nooploop Beacons <common-nooploop>
 [site wiki="copter"]
-	Optical Flow <common-optical-flow-sensors-landingpage>
+    Nokov Indoor Optical Tracking <https://discuss.ardupilot.org/t/nokov-indoor-optical-tracking-system>
+    Optical Flow <common-optical-flow-sensors-landingpage>
     OptiTrack motion capture system <common-optitrack>
 [/site]
     Pozyx Beacons <common-pozyx>

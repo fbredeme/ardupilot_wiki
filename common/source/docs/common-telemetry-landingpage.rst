@@ -1,17 +1,19 @@
 .. _common-telemetry-landingpage:
-
+[copywiki destination="plane,copter,rover,blimp"]
 ========================
 Telemetry (landing page)
 ========================
 
-Copter/Plane/Rover support sharing information with a ground station (or
+Copter/Plane/Rover/Blimp support sharing information with a ground station (or
 transmitter) using telemetry. Follow the links below for configuration
 information based upon your set-up.
 
 .. note:: Some RC systems incorporate telemetry in addition to RC control
-.. note:: Ardupilot will automatically fall back to back to MAVLink1 if MAVLink 2 serial port protocol is selected and no MAVLink 2 data is received from the groundstation in response
+.. note:: ArduPilot will automatically fall back to back to MAVLink1 if MAVLink 2 serial port protocol is selected and no MAVLink 2 data is received from the groundstation in response in fimware versions before 4.2, but not after
 .. image:: ../../../images/Telemetry_LandingImage.jpg
     :target: ../_images/Telemetry_LandingImage.jpg
+
+.. note:: High value systems using RC control over a telemetry link should consider :ref:`common-redundant-telemetry`
 
 Short Range (<10KM)
 ===================
@@ -26,7 +28,8 @@ Short Range (<10KM)
     FrSky telemetry <common-frsky-telemetry>
     Yaapu Bi-Directional Telemetry GCS <common-yaapu-gcs>
     HOTT telemetry <common-hott-telemetry>
-    MSP (MultiWii Serial Protocol) <common-msp-overview>
+    MSP (MultiWii Serial Protocol)(version 4.1) <common-msp-overview>
+    MSP (version 4.2) <common-msp-overview-4.2>
     SiK Radio v1 <common-3dr-radio-v1>
     SiK Radio v2 <common-sik-telemetry-radio>
     SiK Radio configuration <common-configuring-a-telemetry-radio-using-mission-planner>
@@ -42,6 +45,7 @@ Long Range
     Blicube RLINK P900 <common-blicube-rlink>
     CRSF Telemetry <common-crsf-telemetry>
     CUAV P8 Radio <common-cuav-p8>
+    CUAV P9 Radio <common-cuav-p9>
     DragonLink <common-dragonlink-rc>
     Holybro 900Mhz XBP9X Telemetry Radio <https://shop.holybro.com/xbp9x-radio_p1268.html>
     Holybro Microhard P900 Radio Telemetry Radio <http://www.holybro.com/product/microhard-p900-radio/>

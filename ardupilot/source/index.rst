@@ -1,10 +1,12 @@
 .. _home:
 
 ..  raw:: html
-
     <h1 style="text-align:center;">ArduPilot</h1>
 
-    <p style="text-align:left;">
+    <p style="text-align:center;color:red;"><strong>
+    Success with ArduPilot requires that the 'First Time Setup' and 'First Flight/Drive and Tuning' sections of the vehicle's documentation be read and followed!</strong>
+
+    <p style="text-align:left; color:black;">
 
     ArduPilot enables the creation and use of trusted, autonomous,
     unmanned vehicle systems for the peaceful benefit of
@@ -219,6 +221,7 @@ Features
    Plane <https://ardupilot.org/plane/index.html>
    Rover <https://ardupilot.org/rover/index.html>
    Sub <http://ardusub.com/>
+   Blimp <https://ardupilot.org/blimp/index.html>
    AntennaTracker <https://ardupilot.org/antennatracker/index.html>
    Mission Planner <https://ardupilot.org/planner/index.html>
    APM Planner 2 <https://ardupilot.org/planner2/index.html>
@@ -235,3 +238,6 @@ Features
    Contact Us <docs/common-contact-us>
    docs/common-appendix
    Full Table of Contents <docs/common-table-of-contents>
+
+
+last build |today|

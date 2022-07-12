@@ -203,8 +203,7 @@ planes.
 Flap
 ++++
 
-When a channel is set as a flap its value comes from the ``FLAP_IN_CHANNEL`` . The reason you
-may want to use this instead of a RCPassThru is that you can setup
+When a channel is set as a flap its value comes from the flap rc input channel selected by assigning ``RCx_FUNCTION`` = 208 to it and/or from the :ref:`Automatic Flaps<automatic-flaps>` feature. The reason you may want to use this instead of a RCPassThru is that you can setup
 multiple flap channels with different trims and ranges, and you may want
 to take advantage of the :ref:`FLAP_SLEWRATE<FLAP_SLEWRATE>` to limit the speed of flap
 movement.
@@ -217,8 +216,8 @@ can also accept automatic flap output control from the :ref:`TKOFF_FLAP_PCNT<TKO
 :ref:`LAND_FLAP_PERCNT<LAND_FLAP_PERCNT>` parameters, as well as the :ref:`FLAP_1_SPEED <FLAP_1_SPEED>`,
 :ref:`FLAP_1_PERCNT<FLAP_1_PERCNT>`, :ref:`FLAP_2_SPEED<FLAP_2_SPEED>` and :ref:`FLAP_2_PERCNT<FLAP_2_PERCNT>` parameters. in addition to manual control.
 
-If you have both a ``FLAP_IN_CHANNEL`` set and the Automatic Flaps
-function set then the amount of flap applied is the higher of the two.
+If you have both an RC flap input channel set (``RCx_OPTION`` = 208) and the Automatic Flaps
+function set, then the amount of flap applied is the higher of the two.
 
 Flaperons
 +++++++++
@@ -260,7 +259,7 @@ See the separate page on :ref:`setting up ground steering <tuning-ground-steerin
 Boost Engine Throttle
 +++++++++++++++++++++
 
-This output is for throttle control of an auxiliary :ref:`booster-motor` to add an additional vertical thrust source in Multi-Copter and Quadplane applications.
+This output is for throttle control of an auxiliary :ref:`booster-motor` to add an additional vertical thrust source in Multi-Copter and QuadPlane applications.
 
 
 Motor Enable Switch
@@ -339,7 +338,7 @@ Motors 1 - 12
 
 
 
-These are the Copter and Quadplane VTOL motor outputs. For Multi-Copters, see :ref:`Motor Order Diagrams<connect-escs-and-motors>` . Or see :ref:`Traditional Helicopter <traditional-helicopter-connecting-apm>`, or :ref:`singlecopter-and-coaxcopter`, or :ref:`heliquads`.
+These are the Copter and QuadPlane VTOL motor outputs. For Multi-Copters, see :ref:`Motor Order Diagrams<connect-escs-and-motors>` . Or see :ref:`Traditional Helicopter <traditional-helicopter-connecting-apm>`, or :ref:`singlecopter-and-coaxcopter`, or :ref:`heliquads`.
 
 [site wiki="copter"]
 .. note::
@@ -348,7 +347,7 @@ These are the Copter and Quadplane VTOL motor outputs. For Multi-Copters, see :r
    Copter-3.5 (and earlier) do not support assigning the same function to multiple output channels but this feature will be present in Copter-3.6 (and higher).
 [/site]
 
-For Quadplanes, see :ref:`quadplane-frame-setup` for motor output configuration.
+For QuadPlanes, see :ref:`quadplane-frame-setup` for motor output configuration.
 
 Throttle Left/ Right
 ++++++++++++++++++++
@@ -364,7 +363,7 @@ These outputs control the tilt servos for :ref:`guide-tilt-rotor` in Plane and B
 Boost Engine Throttle
 +++++++++++++++++++++
 
-This output is for throttle control of an auxiliary :ref:`booster-motor` to add an additional vertical thrust source in Multi-Copter and Quadplane applications.
+This output is for throttle control of an auxiliary :ref:`booster-motor` to add an additional vertical thrust source in Multi-Copter and QuadPlane applications.
 
 Motor Enable Switch
 +++++++++++++++++++
@@ -374,7 +373,7 @@ This provides an output that reflects the ARM/DISARM state of the vehicle to con
 Parachute Release
 +++++++++++++++++
 
-See :ref:`Parachute<copter:parachute>` section.
+See :ref:`Parachute<common-parachute>` section.
 
 Landing Gear
 ++++++++++++
@@ -606,9 +605,9 @@ Either upon loading the firmware or selecting the frame type, certain default va
 +------------------------------------+---+---+---+---+---+---+---+---+---+----+----+----+
 | Fixed Wing Plane / Tailsitter      |4  |19 |21 |70 |0  |0  |0  |0  |0  |0   |0   |0   |
 +------------------------------------+---+---+---+---+---+---+---+---+---+----+----+----+
-| Quadplane                          |4  |19 |21 |70 |33 |34 |35 |36 |0  |0   |0   |0   |
+| QuadPlane                          |4  |19 |21 |70 |33 |34 |35 |36 |0  |0   |0   |0   |
 +------------------------------------+---+---+---+---+---+---+---+---+---+----+----+----+
-| Quadplane Tricopter                |4  |19 |21 |70 |33 |34 |0  |36 |0  |0   |39  |0   |
+| QuadPlane Tricopter                |4  |19 |21 |70 |33 |34 |0  |36 |0  |0   |39  |0   |
 +------------------------------------+---+---+---+---+---+---+---+---+---+----+----+----+
 | Rover                              |26 |0  |70 |0  |0  |0  |0  |0  |0  |0   |0   |0   |
 +------------------------------------+---+---+---+---+---+---+---+---+---+----+----+----+

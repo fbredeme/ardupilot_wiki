@@ -210,12 +210,13 @@ Then reboot.
 How to trigger a camera with relay pin
 ======================================
 
-All PWM could be use as relay. ``BRD_PWM_COUNT`` have to be set.
+Any PWM output can be used as a relay pin. See :ref:`common-gpios`
 
-``BRD_PWM_COUNT`` = 2
 :ref:`RELAY_PIN<RELAY_PIN>` = 15 # for output PWM 5
 
 if we want to set PWM 6 as relay pin :
 :ref:`RELAY_PIN<RELAY_PIN>` = 41 # for output PWM 6
 
 Hardware definition is available `here <https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_HAL_ChibiOS/hwdef/omnibusf4pro/hwdef.dat>`__.
+
+[copywiki destination="plane,copter,rover,blimp"]

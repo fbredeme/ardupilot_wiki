@@ -49,6 +49,7 @@ Closed hardware
     :maxdepth: 1
 
     Aerotenna Ocpoc-Zynq <https://aerotenna.com/shop/ocpoc-zynq-mini/>
+    Airvolute DroneCore <common-airvolute-DroneCore-Suite>
     Emlid NAVIO2 (Linux) <common-navio2-overview>
     Furious FPV F-35 Lightning and Wing FC-10 <common-furiousfpv-f35>
     Flywoo F745 AIO BL_32 <common-flywoo-f745>
@@ -57,6 +58,7 @@ Closed hardware
     Holybro Kakute F7 AIO* <common-holybro-kakutef7aio>
     Holybro Kakute F7 Mini* (only V1 and V2 are compatible) <common-holybro-kakutef7mini>
     Holybro Kakute H7-BT <common-holybro-kakuteh7.rst>
+    Holybro Kakute H7 Mini <common-holybro-kakuteh7mini.rst>
     Holybro Pixhawk 4 Mini <common-holybro-ph4mini>
     Holybro Pixhawk5X <common-holybro-ph5x>
     Horizon31 PixC4-Jetson <common-horizon31-pixc4-jetson>
@@ -82,7 +84,9 @@ Closed hardware
     Parrot C.H.U.C.K <common-CHUCK-overview>
     RadioLink MiniPix <common-radiolink-minipix>
     QioTek Zealot F427 <common-qiotek-zealot>
+    QioTek Zealot H743 <common-qiotek-zealoth7>
     Sky-Drones AIRLink <common-skydrones-airlink>
+    Swan-K1 <common-Swan-K1>
     SpeedyBee F4 (this board currently is non-verified) <common-speedybeef4>
     VR Brain 5 <http://www.virtualrobotix.it/index.php/en/shop/autopilot/vrbrain5-detail>
     VR uBrain 5.1 <http://www.virtualrobotix.it/index.php/en/shop/autopilot/vrbrainmicro51-detail>
@@ -128,3 +132,6 @@ Schematics
 ----------
 
 Schematics for some of the "Open hardware" autopilots `can be found here <https://github.com/ArduPilot/Schematics>`__
+
+
+[copywiki destination="plane,copter,rover,blimp"]

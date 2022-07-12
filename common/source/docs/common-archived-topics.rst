@@ -32,8 +32,10 @@ value to users with old hardware.
 [/site]
 [site wiki="copter,plane,rover"]
     Edge Quick Start <common-edge-quick-start>
+    Skysight Mono Camera Trigger <common-camera-trigger-skysight-mono>
 [/site]
 [site wiki="copter"]
+    Boat Mode <boat-mode>
     Using Xbee radios for telemetry with APM <xbee-radios>
     Quick Start for RTFs <quick-start-guide>
     HIL Quad Simulator <hil-quad>
@@ -56,6 +58,7 @@ value to users with old hardware.
     Position mode <ac2_positionmode>
     Advanced Tuning <tuning>
     Basic Tuning <basic-tuning>
+    Auxiliary Function Switches (3.6 and earlier) <channel-7-and-8-options>
 [/site]
 [site wiki="rover"]
     Pre-4.0 Rover Avoidance <rover-object-avoidance>
@@ -102,6 +105,7 @@ value to users with old hardware.
     Weekly meetings on Mumble Server <ardupilot-mumble-server>
     How to sign a Pixhawk with your Certificate of Authenticity <how-to-use-the-auth-command-to-sign-a-pixhawk-board-with-your-certificate-of-authenticity>
     SITL Serial Mapping <sitl-serial-mapping>
+    2020/2021 Roadmap <roadmap>
 [/site]
 
 

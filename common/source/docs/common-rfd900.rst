@@ -1,5 +1,5 @@
 .. _common-rfd900:
-
+[copywiki destination="plane,copter,rover,blimp"]
 ==================
 RFD900 Radio Modem
 ==================
@@ -40,19 +40,6 @@ The radio and antennas as separate units are available:
 
 Ready made Sets
 ---------------
-
-JDrones
-+++++++
-
-.. image:: ../../../images/jDrones_RF900PlusSET_NoLogo.jpg
-    :target: ../_images/jDrones_RF900PlusSET_NoLogo.jpg
-
-Ready made set includes antennas, connecting cables for Pixhawk and APM
-2.x autopilots, usb cable for ground unit. FTDI adapter, power
-filtering, adapter PCBs and strong protective casing
-
--  `jDrones Store, RF900Mhz Set <http://store.jdrones.com/jD_RD900Plus_Telemetry_Bundle_p/rf900set02.htm>`__
--  `jDrones Store, RF868Mhz Set <http://store.jdrones.com/jD_RD868Plus_Telemetry_Bundle_p/rf868set02.htm>`__
 
 Bask Aerospace
 ++++++++++++++
@@ -130,5 +117,4 @@ see
 Discussion Forum
 ================
 
-The best place to discuss these radios including set-up issues is on
-`Seppo's RFD900 discussion on diydrones <https://diydrones.com/forum/topics/rfd900-new-long-range-radio-modem>`__.
+The best place to discuss these radios including set-up issues is on `ArduPilot's hardware discussion forums <https://discuss.ardupilot.org/c/hardware-discussion/radios-hardware/101>`__.

@@ -6,7 +6,7 @@ Auxiliary Functions
 
 This feature is firmware versions 4.0 and higher. In Copter versions before 4.0 similar functions were implemented using the CHx_OPT parameters. See :ref:`Auxiliary Function Switches (3.6 and earlier)<channel-7-and-8-options>` page.
 
-This page describes how to set up additional features which can be invoked from the transmitter's auxiliary function switches.
+This page describes how to set up additional features which can be invoked from the transmitter's auxiliary function switches or from external :ref:`buttons <common-buttons>`.
 
 Configuring which transmitter channel is used
 =============================================
@@ -100,7 +100,7 @@ Supported Features
 +----------------------+----------------------------+----------+---------+---------+
 |        40            | Object Avoidance           |    X     |         |    X    |
 +----------------------+----------------------------+----------+---------+---------+
-|        41            | Arm Disarm                 |    X     |    X    |    X    |
+|        41            | Arm Disarm (4.1 and before)|    X     |    X    |    X    |
 +----------------------+----------------------------+----------+---------+---------+
 |        42            | SMARTRTL mode              |    X     |         |    X    |
 +----------------------+----------------------------+----------+---------+---------+
@@ -219,6 +219,30 @@ Supported Features
 |        107           | Enable Autotuning          |          |    X    |         |
 +----------------------+----------------------------+----------+---------+---------+
 |        108           | QRTL Mode                  |          |    X    |         |
++----------------------+----------------------------+----------+---------+---------+
+|        150           | CRUISE Mode                |          |    X    |         |
++----------------------+----------------------------+----------+---------+---------+
+|        151           | TURTLE Mode                |    X     |         |         |
++----------------------+----------------------------+----------+---------+---------+
+|        152           | SIMPLE mode heading reset  |    X     |         |         |
++----------------------+----------------------------+----------+---------+---------+
+|        153           | ARM/DISARM (4.2 and higher)|    X     |    X    |    X    |
++----------------------+----------------------------+----------+---------+---------+
+|        154           | ARM/DISARM with AIRMODE on |    X     |    X    |         |
++----------------------+----------------------------+----------+---------+---------+
+|        155           | TRIM RC/SERVO Save         |          |    X    |   X     |
++----------------------+----------------------------+----------+---------+---------+
+|        156           | TORQEEDO Error Clear       |          |         |   X     |
++----------------------+----------------------------+----------+---------+---------+
+|        157           | Force FBWA Long FS Action  |          |    X    |         |
++----------------------+----------------------------+----------+---------+---------+
+|        158           | Optflow Calibration        |    X     |    X    |         |
++----------------------+----------------------------+----------+---------+---------+
+|        159           | Force Flying State         |    X     |         |         |
++----------------------+----------------------------+----------+---------+---------+
+|        160           | WeatherVane Enable         |          |    X    |         |
++----------------------+----------------------------+----------+---------+---------+
+|        161           | Turbine Start (Heli)       |    X     |         |         |
 +----------------------+----------------------------+----------+---------+---------+
 
 Intended as continuous PWM range control inputs:
@@ -369,7 +393,7 @@ Operates the :ref:`gripper <common-gripper-landingpage>`.  Switch pulled low rel
    <td><strong>Parachute Enable</strong></td>
    <td>
 
-Enables the automatic release of the :ref:`parachute <parachute>` (this does not immediately trigger the release).
+Enables the automatic release of the :ref:`parachute <common-parachute>` (this does not immediately trigger the release).
 
 .. raw:: html
 
@@ -379,7 +403,7 @@ Enables the automatic release of the :ref:`parachute <parachute>` (this does not
    <td><strong>Parachute Release</strong></td>
    <td>
 
-Immediately triggers the release of the :ref:`parachute <parachute>` as long as the vehicle is not landed or too low.
+Immediately triggers the release of the :ref:`parachute <common-parachute>` as long as the vehicle is not landed or too low.
 
 .. raw:: html
 
@@ -389,7 +413,7 @@ Immediately triggers the release of the :ref:`parachute <parachute>` as long as 
    <td><strong>Parachute 3Pos</strong></td>
    <td>
 
-Switch pulled low disables the :ref:`parachute <parachute>`.  Switch in middle enables the parachute for automatic release.  Switch pulled high triggers release of the parachute as long as vehicle is not landed or too low.
+Switch pulled low disables the :ref:`parachute <common-parachute>`.  Switch in middle enables the parachute for automatic release.  Switch pulled high triggers release of the parachute as long as vehicle is not landed or too low.
 
 .. raw:: html
 
@@ -559,7 +583,7 @@ When switch is high, avoid objects using :ref:`Lightware SF40c <common-lightware
    </td>
    </tr>
    <tr>
-   <td><strong>Arm/Disarm</strong></td>
+   <td><strong>Arm/Disarm(4.1 and earlier)</strong></td>
    <td>
 
 Arms the vehicle if the switch goes high (subject to arming checks).
@@ -811,7 +835,7 @@ Enables Soaring function operating modes
    <td><strong>Force Flare</strong></td>
    <td>
 
-Moves tilt motors to upright position and optionally sets pitch for flare when landing Tilt Rotor Quadplanes. Middle: Pilot retains pitch control during flare. High: Pitch set to :ref:`LAND_PITCH_CD<LAND_PITCH_CD>`.
+Moves tilt motors to upright position and optionally sets pitch for flare when landing Tilt Rotor QuadPlanes. Middle: Pilot retains pitch control during flare. High: Pitch set to :ref:`LAND_PITCH_CD<LAND_PITCH_CD>`.
 
 .. raw:: html
 
@@ -871,7 +895,7 @@ Forces mode switch to be re-read.
    <td><strong>WindVane home direction offset</strong></td>
    <td>
 
-This is a continuous input channel providing a -45 to +45 degree offset the the initial wind direction when using :ref:`WNDVN_TYPE<WNDVN_TYPE>` = 2.
+This is a continuous input channel providing a -45 to +45 degree offset the initial wind direction when using :ref:`WNDVN_TYPE<WNDVN_TYPE>` = 2.
 
 .. raw:: html
 
@@ -919,6 +943,107 @@ Allows tuning without entering AUTOTUNE mode. ie place vehicle in LOITER/AUTO wi
    </td>
    </tr>
    <tr>
+   <td><strong>SIMPLE mode heading reset</strong></td>
+   <td>
+
+Resets original heading reference to current heading for SIMPLE Mode.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>ARM/DISARM (4.2 and higher)</strong></td>
+   <td>
+
+Arms the vehicle if the switch goes high (subject to arming checks).
+Disarms the vehicle unconditionally if brought low.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>ARM/DISARM with AIRMODE on</strong></td>
+   <td>
+
+Arms the vehicle if the switch goes high (subject to arming checks) with AIRMODE active. Airmode rc option switch can subsequently enable or disable if it is configured. Disarms the vehicle unconditionally if brought low.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>TRIM RC/SERVO Save</strong></td>
+   <td>
+
+Saves current RC input trim and SERVO output trim for pitch. roll, and yaw in Plane and for Steering in Rover.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>Torqeedo Error Clear</strong></td>
+   <td>
+
+Clears error condition in Torqeedo motor controller.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>Force FBWA as Long FS Action</strong></td>
+   <td>
+
+Forces mode change to FBWA in Long FS, overriding the :ref:`FS_LONG_ACTN<FS_LONG_ACTN>` parameter value for emergency landings beyond RC control range to prevent normal failasfe action from occurring.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>Optflow Calibration</strong></td>
+   <td>
+
+Enables calibration of optical flow parameters.
+
+.. raw:: html
+
+   </td>
+   </tr> 
+   <tr>
+   <tr>
+   <td><strong>Force Flying</strong></td>
+   <td>
+
+Disables the landing detection heuristic to prevent false landing detections during a mission or manual flight if sudden Z changes can occur due to wind gusts, etc.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>WeatherVane Enable</strong></td>
+   <td>
+
+Enables or disables weathervaning in Quadplane VTOL modes.
+
+.. raw:: html
+
+   </td>
+   </tr>
+   <tr>
+   <td><strong>Turbine Start (Heli)</strong></td>
+   <td>
+
+When armed and RSC is idle, the high position signals the helicopter rotor speed governor to ramp the throttle to full and back to idle, which signals the turbine engine ECU to initiate the start sequence. The switch must be set back low and  aircraft has to be disarmed to re-enable this feature.
+
+.. raw:: html
+
+   </td>
+   </tr>
    <td><strong>ROLL Input</strong></td>
    <td>
 

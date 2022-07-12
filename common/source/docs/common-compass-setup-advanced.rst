@@ -70,7 +70,7 @@ Orientation
 
 The :ref:`AHRS_ORIENTATION<AHRS_ORIENTATION>` must be set correctly for the compass calibration to be successful. In addition,the :ref:`common-accelerometer-calibration` should be completed before the Compass Calibration.
 
-The setting of the orientation of external compasses is no longer required. It's determined automatically during calibration now.
+The setting of the orientation of external compasses is no longer required. It's determined automatically during :ref:`common-compass-calibration-in-mission-planner` now. This can be disabled, or only report the orientation determined during Compass Calibration, using the :ref:`COMPASS_AUTO_ROT<COMPASS_AUTO_ROT>` parameter. The orientation determination CAN fail if the magnetic fields are compromised by nearby metal or other interference, especially on 45 deg offset orientations. If the compass is known to be mounted on a 45 degree bias to the accelerometers, and fails to determine orientation during the Compass Calibration, then setting :ref:`COMPASS_AUTO_ROT<COMPASS_AUTO_ROT>` to "3" and repeating the calibration, may yield a successful completion.
 
 However, if the need to double-check the orientation of a compass should arise:
 
@@ -156,6 +156,9 @@ In the 4.0 releases of ArduPilot, an automatic offset learning feature is availa
   1. set :ref:`COMPASS_LEARN<COMPASS_LEARN>` = 3. The message “CompassLearn: Initialised” will appear on the MP’s message tab (it does not appear in red letters on the HUD).
   2. “Bad Compass” will appear but this is nothing to be worried about. We will hopefully make this disappear before the final release.
   3. Arm and drive/fly the vehicle around in whatever mode you like, do some turns “CompassLearn: have earth field” should appear on MP’s message tab and then eventually “CompassLearn: finished”.
+
+.. note:: You MUST have a GPS lock and signal for this to be successful. Be sure the GPS has a clear "view" of the sky and there are no obstructions blocking the GPS signals.
+
   4. If you want you can check the :ref:`COMPASS_LEARN<COMPASS_LEARN>` parameter has been set back to zero (you may need to refresh parameters to see this) and the COMPASS_OFS_X/Y/Z values will have changed.
   5. This method can also be evoked using the RCxOPTION for "Compass Learn". It will activate when the channel goes above 1800uS and automatically complete and save.
 

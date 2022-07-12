@@ -191,14 +191,13 @@ This list of commands was inferred from the command handler in
 - :ref:`MAV_CMD_DO_DIGICAM_CONTROL <mav_cmd_do_digicam_control>` (Camera enabled only)
 - :ref:`MAV_CMD_DO_SET_CAM_TRIGG_DIST <mav_cmd_do_set_cam_trigg_dist>` (Camera enabled only)
 - :ref:`MAV_CMD_DO_SET_ROI <mav_cmd_do_set_roi>`
-- :ref:`MAV_CMD_DO_SET_MODE <mav_cmd_do_set_mode>`
 - :ref:`MAV_CMD_DO_MOUNT_CONTROL <mav_cmd_do_mount_control>`
 - :ref:`MAV_CMD_DO_PARACHUTE <mav_cmd_do_parachute>` (Parachute enabled only)
 - :ref:`MAV_CMD_DO_GRIPPER <mav_cmd_do_gripper>` (EPM enabled only)
 - :ref:`MAV_CMD_DO_GUIDED_LIMITS <mav_cmd_do_guided_limits>` (NAV_GUIDED only)
 - :ref:`MAV_CMD_DO_SET_RESUME_DIST <mav_cmd_do_set_resume_dist>`
 - :ref:`MAV_CMD_DO_FENCE_ENABLE <mav_cmd_do_fence_enable>`
-
+- :ref:`MAV_CMD_STORAGE_FORMAT <mav_cmd_storage_format>`
 [/site]
 
 [site wiki="plane"]
@@ -234,7 +233,6 @@ This list of commands was inferred from the command handler in
 - :ref:`MAV_CMD_DO_DIGICAM_CONTROL <mav_cmd_do_digicam_control>` (Camera enabled only)
 - :ref:`MAV_CMD_DO_SET_CAM_TRIGG_DIST <mav_cmd_do_set_cam_trigg_dist>` (Camera enabled only)
 - :ref:`MAV_CMD_DO_SET_ROI <mav_cmd_do_set_roi>` (Gimbal/mount enabled only)
-- :ref:`MAV_CMD_DO_SET_MODE <mav_cmd_do_set_mode>`
 - :ref:`MAV_CMD_DO_JUMP <mav_cmd_do_jump>`
 - :ref:`MAV_CMD_DO_MOUNT_CONTROL <mav_cmd_do_mount_control>`
 - :ref:`MAV_CMD_DO_INVERTED_FLIGHT <mav_cmd_do_inverted_flight>`
@@ -242,6 +240,7 @@ This list of commands was inferred from the command handler in
 - :ref:`MAV_CMD_DO_FENCE_ENABLE <mav_cmd_do_fence_enable>`
 - :ref:`MAV_CMD_DO_AUTOTUNE_ENABLE <mav_cmd_do_autotune_enable>`
 - :ref:`MAV_CMD_DO_SET_RESUME_DIST <mav_cmd_do_set_resume_dist>`
+- :ref:`MAV_CMD_STORAGE_FORMAT <mav_cmd_storage_format>`
 
 [/site]
 
@@ -272,9 +271,9 @@ This list of commands was inferred from the command handler in
 - :ref:`MAV_CMD_DO_MOUNT_CONTROL <mav_cmd_do_mount_control>`
 - :ref:`MAV_CMD_DO_SET_CAM_TRIGG_DIST <mav_cmd_do_set_cam_trigg_dist>` (Camera enabled only)
 - :ref:`MAV_CMD_DO_SET_ROI <mav_cmd_do_set_roi>` (Gimbal/mount enabled only)
-- :ref:`MAV_CMD_DO_SET_MODE <mav_cmd_do_set_mode>`
 - :ref:`MAV_CMD_DO_SET_RESUME_DIST <mav_cmd_do_set_resume_dist>`
 - :ref:`MAV_CMD_DO_FENCE_ENABLE <mav_cmd_do_fence_enable>`
+- :ref:`MAV_CMD_STORAGE_FORMAT <mav_cmd_storage_format>`
 
 [/site]
 
@@ -941,7 +940,7 @@ This is the command equivalent of the :ref:`Circle flight mode <copter:circle-mo
    <tr>
    <td><strong>param3</strong></td>
    <td>Radius</td>
-   <td>Empty</td>
+   <td>Loiter radius around waypoint. Units are in meters. Values over 255 will be in units of 10 meters. and values greater than 2550 will be 2550.</td>
    </tr>
    <tr style="color: #c0c0c0">
    <td><strong>param4</strong></td>
@@ -1553,7 +1552,7 @@ control the landing are provided in :ref:`LAND flight mode <plane:land-mode>`.
 MAV_CMD_NAV_VTOL_LAND
 ---------------------
 
-Supported by: Plane (not Copter or Rover). Specifically Quadplanes.
+Supported by: Plane (not Copter or Rover). Specifically QuadPlanes.
 
 Land the vehicle at the current or a specified location.
 
@@ -1602,7 +1601,7 @@ The motors will disarm on their own once landed
    <tr>
    <td><strong>param5</strong></td>
    <td>Lat</td>
-   <td>Target latitude. If zero, the Quadplane will land at the current latitude.</td>
+   <td>Target latitude. If zero, the QuadPlane will land at the current latitude.</td>
    </tr>
    <tr>
    <td><strong>param6</strong></td>
@@ -2526,66 +2525,7 @@ The "DO" or "Now" commands are executed once to perform some action. All
 the DO commands associated with a waypoint are executed immediately.
 
 
-.. _mav_cmd_do_set_mode:
 
-MAV_CMD_DO_SET_MODE
--------------------
-
-Supported by: Copter, Plane, Rover.
-
-Set system mode (preflight, armed, disarmed etc.)
-
-
-**Command parameters**
-
-.. raw:: html
-
-   <table border="1" class="docutils">
-   <tbody>
-   <tr>
-   <th>Command Field</th>
-   <th>Mission Planner Field</th>
-   <th>Description</th>
-   </tr>
-   <tr>
-   <td><strong>param1</strong></td>
-   <td></td>
-   <td>Mode, as defined by `MAV_MODE <https://mavlink.io/en/messages/common.html#MAV_MODE>`__</td>
-   </tr>
-   <tr style="color: #c0c0c0">
-   <td><strong>param2</strong></td>
-   <td></td>
-   <td>Custom mode - this is system specific, please refer to the individual autopilot specifications for details.</td>
-   </tr>
-   <tr>
-   <td>param3</td>
-   <td></td>
-   <td>Empty</td>
-   </tr>
-   <tr style="color: #c0c0c0">
-   <td>param4</td>
-   <td></td>
-   <td>Empty</td>
-   </tr>
-   <tr style="color: #c0c0c0">
-   <td>param5</td>
-   <td></td>
-   <td>Empty</td>
-   </tr>
-   <tr style="color: #c0c0c0">
-   <td>param6</td>
-   <td></td>
-   <td>Empty</td>
-   </tr>
-   <tr style="color: #c0c0c0">
-   <td>param7</td>
-   <td></td>
-   <td>Empty</td>
-   </tr>
-   </tbody>
-   </table>
-
-   
 .. _mav_cmd_do_change_speed:
 
 MAV_CMD_DO_CHANGE_SPEED
@@ -3234,7 +3174,7 @@ If ``RTL_AUTOLAND`` is set to 2, the plane will jump to the nearest
 MAV_CMD_DO_VTOL_TRANSITION
 --------------------------
 
-Supported by: Plane (not Copter or Rover).Specifically Quadplanes.
+Supported by: Plane (not Copter or Rover).Specifically QuadPlanes.
 
 QuadPlane
 ~~~~~~~~~
@@ -4183,7 +4123,7 @@ MAV_CMD_DO_AUTOTUNE_ENABLE
 Supported by: Plane (not Copter or Rover).
 
 Enable/disable autotune.
-(not included in Mission Planner, use MAV_CMD_DO_SET_MODE)
+(not included in Mission Planner,included in MAVProxy and QGC)
 
 Plane
 ~~~~~
@@ -4253,7 +4193,7 @@ Stop or start internal combustion engine (ICE)
 Plane
 ~~~~~
 
-This command can be used to start or stop the ICE before a NAV_VTOL_LAND or after a NAV_VTOL_TAKEOFF command for a Quadplane to avoid potential prop strikes in the wind. It should be placed before either of those commands.
+This command can be used to start or stop the ICE before a NAV_VTOL_LAND or after a NAV_VTOL_TAKEOFF command for a QuadPlane to avoid potential prop strikes in the wind. It should be placed before either of those commands.
 
 **Command parameters**
 
@@ -4333,6 +4273,64 @@ Set the distance that the mission will be rewound when resuming after an interup
    <td>param2</td>
    <td></td>
    <td>Empty</td>
+   </tr>
+   <tr style="color: #c0c0c0">
+   <td>param3</td>
+   <td></td>
+   <td>Empty</td>
+   </tr>
+   <tr style="color: #c0c0c0">
+   <td>param4</td>
+   <td></td>
+   <td>Empty</td>
+   </tr>
+   <tr style="color: #c0c0c0">
+   <td>param5</td>
+   <td></td>
+   <td>Empty</td>
+   </tr>
+   <tr style="color: #c0c0c0">
+   <td>param6</td>
+   <td></td>
+   <td>Empty</td>
+   </tr>
+   <tr style="color: #c0c0c0">
+   <td>param7</td>
+   <td></td>
+   <td>Empty</td>
+   </tr>
+   </tbody>
+   </table>
+
+.. _mav_cmd_storage_format:
+
+MAV_CMD_STORAGE_FORMAT
+----------------------
+
+Supported by: Plane, Copter & Rover.
+
+Format SD Card. Useful for vehicles where SD card is inaccessible. Param1 and Param2 must be set to 1.
+
+**Command parameters**
+
+.. raw:: html
+
+   <table border="1" class="docutils">
+   <tbody>
+   <tr>
+   <th>Command Field</th>
+   <th>Mission Planner Field</th>
+   <th>Description</th>
+   </tr>
+   <tr>
+   <td><strong>param1</strong></td>
+   <td>?</td>
+   <td>Must be 1</td>
+   </tr>
+   <tr>
+   <td><strong>param2</strong></td>
+   <td>?</td>
+   <td>Must be 1</td>
    </tr>
    <tr style="color: #c0c0c0">
    <td>param3</td>

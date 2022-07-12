@@ -6,7 +6,7 @@ Yaw and Yaw Control in Plane
 
 The control of yaw in plane is mainly via the RUDDER output function (``SERVOx_FUNCTION`` = 21). Of course, flying wings do not have that function and yaw occurs naturally as the wings are banked and elevator applied to eliminate altitude loss. The fact the most flying wings are swept provides an amount of natural turn coordination that rudder normally provides for turns.
 
-Ardupilot, in fixed wing modes, provides NO direct rate stabilization or heading angle hold for yaw, as it does for pitch and roll. In manual fixed wing modes (MANUAL,ACRO, and TRAINING), the pilot will need to control the rudder, if present, in order to make coordinated turns (turns where there is no lateral acceleration, ie slip or skid).
+ArduPilot, in fixed wing modes, provides NO direct rate stabilization or heading angle hold for yaw, as it does for pitch and roll. In manual fixed wing modes (MANUAL,ACRO, and TRAINING), the pilot will need to control the rudder, if present, in order to make coordinated turns (turns where there is no lateral acceleration, ie slip or skid).
 
 However, in all other modes, ArduPilot can provide reasonable turn coordination via the :ref:`KFF_RDDRMIX<KFF_RDDRMIX>` parameter which will feed rudder in as ailerons move. See the section below, :ref:`coordinated-turn-setup`. In all other modes, besides MANUAL, ACRO, or TRAINING, no rudder input from the pilot is needed.
 
@@ -23,7 +23,7 @@ In addition, ArduPilot produced yaw control can also occur:
 Other YAW mechanisms
 ====================
 
-If twin engines are used (THROTTLE LEFT and THROTTLE RIGHT output functions), then the pilot and ArudPilot can use differential thrust to produce yaw in Plane, or in Quadplanes when in fixed wing modes, if using twin/quad forward motors for fixed wing flight modes. This is enabled by setting :ref:`RUDD_DT_GAIN<RUDD_DT_GAIN>` to a non-zero value.
+If twin engines are used (THROTTLE LEFT and THROTTLE RIGHT output functions), then the pilot and ArduPilot can use differential thrust to produce yaw in Plane, or in QuadPlanes when in fixed wing modes, if using twin/quad forward motors for fixed wing flight modes. This is enabled by setting :ref:`RUDD_DT_GAIN<RUDD_DT_GAIN>` to a non-zero value.
 
 Yaw Trim
 ========

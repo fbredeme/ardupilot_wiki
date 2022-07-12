@@ -14,6 +14,8 @@ DroneCAN was created to continue the development of the widely used UAVCAN v0 pr
     Avionics Anonymous GNSS/Mag: GNSS + Compass <common-avanon-laserint>
     Avionics Anonymous LIDAR Interface <common-avanon-mag>
     CUAV Neo v2 Pro DroneCAN GPS <common-cuav-neo-v2-pro>
+    CUAV Neo 3 Pro DroneCAN GPS <common-cuav-neo-3-pro>
+    CUAV C-RTK2 PPK and RTK receiver<common-cuav-c-rtk2>
     CUAV DroneCAN Power Module <common-can-pmu>
     jDrones DroneCAN Starter kit <https://store.jdrones.com/uc4g_slcan_v11_p/uc4hcmb01.htm>
     jDrones DroneCAN General Node <https://store.jdrones.com/uc4g_geneneral_node_v21_p/uc4hgnode21.htm>
@@ -25,5 +27,7 @@ DroneCAN was created to continue the development of the widely used UAVCAN v0 pr
     mRo DroneCAN Adapter Node <common-mro-uavcan-adapter-node>
     Pomegranate Systems DroneCAN Power Module<common-pomegranate-systems-pm>
     Qiotek DroneCAN Airspeed Sensor <https://www.qio-tek.com/index.php?route=product/product&product_id=309>
+    Qiotek DroneCAN RM3100 Compass <http://www.qio-tek.com/RM3100_CAN>
+    Qiotek DroneCAN RTK-F9P GPS <https://www.qio-tek.com/RTK_F9P>
     DroneCAN ESCs <common-uavcan-escs>
     Zubax GNSS 2: GNSS + Compass + Barometer <common-zubax-gnss-positioning-module-gps-compass-and-barometer>

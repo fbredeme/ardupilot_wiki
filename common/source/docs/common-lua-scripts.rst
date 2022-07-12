@@ -97,6 +97,14 @@ Script Crashes and Errors
 If scripts run out of memory (or panic for any reason) all currently running scripts are terminated, and the scripting engine will restart, and reload all scripts from the disk.
 This is allowed to happen at all flight stages, even while the vehicle is armed and flying.
 
+Scripting and Parameters
+========================
+
+.. toctree::
+   :maxdepth: 1
+   
+   Accessing/Adding Parameters via Scripts <common-scripting-parameters>
+
 API Documentation
 =================
 
@@ -341,6 +349,8 @@ GCS (gcs:)
 +---------------+-----------+
 |6              | Info      |
 +---------------+-----------+
+|7              | Debug     |
++---------------+-----------+
 
 
 - :code:`set_message_interval( serial_channel ,  message_type ,  rate )` - Sets the message_type's update rate on SERIAL(serial_channel). For example, gcs:set_message_interval(0, 30, 500000) sets SERIAL0 rate for ATTITUDE message stream (30) to 2.0 Hz (500,000 microseconds)
@@ -407,13 +417,13 @@ The terrain library provides access to checking heights against a terrain databa
 Relay (relay:)
 ~~~~~~~~~~~~~~
 
-The relay library proivdes access to controlling relay outputs.
+The relay library provides access to controlling relay outputs.
 
 - :code:`on(relay_num)` - Turns the requested relay on.
 
 - :code:`off(relay_num)` - Turns the requested relay off.
 
-- :code:`enabled(relay_num)` - Returns true if the requested relay is currently turned on.
+- :code:`enabled(relay_num)` - Returns true if the requested relay is enabled.
 
 - :code:`toggle(relay_num)` - Toggles the requested relay on or off.
 
@@ -436,7 +446,7 @@ RC Channels (rc:)
 Serial/UART (serial:)
 ~~~~~~~~~~~~~~~~~~~~~
 
-- :code:`find_serial(protocol)` - Returns the first UART instance that allows the given protocol, or nil if not found.
+- :code:`find_serial(instance)` - Returns the UART instance that allows connections from scripts (those with :code:`SERIALx_PROTOCOL = 28`). For :code:`instance = 0`, returns first such UART, second for :code:`instance = 1`, and so on. If such an instance is not found, returns :code:`nil`.
 
 	- :code:`UART:begin(baud)` - Start serial connection at given baud rate.
 	- :code:`UART:read()` - Returns a sequence of bytes from UART instance.

@@ -106,10 +106,6 @@ Install proto3 and deb dependencies
     rosdep update
     rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y
 
-.. note::
-
-   Cartographer installs a version of protobuf that overrides the system defaults and can only be removed with "make uninstall"
-
 Clone the `Robot Pose Publisher <http://wiki.ros.org/robot_pose_publisher>`__ package into the workspace
 
 ::
@@ -146,6 +142,8 @@ Copy-paste the contents below into the file
                 type="cartographer_node"
                 args="-configuration_directory $(find cartographer_ros)/configuration_files -configuration_basename cartographer.lua"
                 output="screen">
+                <remap from=”odom” to “/mavros/local_position/odom” />
+                <remap from=”imu” to “/mavros/imu/data” />
           </node>
           <node name="cartographer_occupancy_grid_node"
                 pkg="cartographer_ros"
@@ -205,6 +203,18 @@ Copy-paste the contents below into the file
     TRAJECTORY_BUILDER_2D.use_imu_data = false
 
     TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
+    
+    TRAJECTORY_BUILDER_2D.ceres_scan_matcher.translation_weight = 10
+      
+    TRAJECTORY_BUILDER_2D.ceres_scan_matcher.rotation_weight = 5
+      
+    TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
+      
+    TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.1
+    
+    TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 1.
+      
+    TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.rotation_delta_cost_weight = 10
 
     POSE_GRAPH.optimization_problem.huber_scale = 1e2
 
@@ -279,8 +289,9 @@ Connect to the flight controller with a ground station (i.e. Mission Planner) an
 -  :ref:`EK2_ENABLE <copter:EK2_ENABLE>` = 1 (the default)
 -  :ref:`EK3_ENABLE <copter:EK3_ENABLE>` = 0 (the default)
 -  :ref:`GPS_TYPE <copter:GPS_TYPE>` = 0 to disable the GPS
+-  :ref:`VISO_TYPE <copter:VISO_TYPE>` = 1 to enable visual odometry
 -  :ref:`EK2_GPS_TYPE <copter:EK2_GPS_TYPE>` = 3 to disable the EKF's use of the GPS
--  MAG_ENABLE = 0, :ref:`COMPASS_USE <copter:COMPASS_USE>` = 0, :ref:`COMPASS_USE2 <copter:COMPASS_USE2>` = 0, :ref:`COMPASS_USE3 <copter:COMPASS_USE3>` = 0 to disable the EKF's use of the compass and instead rely on the heading from ROS and Hector SLAM
+-  :ref:`COMPASS_ENABLE<copter:COMPASS_ENABLE>` = 0, :ref:`COMPASS_USE <copter:COMPASS_USE>` = 0, :ref:`COMPASS_USE2 <copter:COMPASS_USE2>` = 0, :ref:`COMPASS_USE3 <copter:COMPASS_USE3>` = 0 to disable the EKF's use of the compass and instead rely on the heading from ROS and Cartographer SLAM
 
 After changing any of the values above, reboot the flight controller.
 

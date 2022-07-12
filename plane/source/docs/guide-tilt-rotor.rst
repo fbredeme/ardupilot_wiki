@@ -46,8 +46,7 @@ Setting Up A Tilt-Rotor
 =======================
 
 The first thing you need to do is enable QuadPlane support by setting
-:ref:`Q_ENABLE<Q_ENABLE>` to 1, and then choose the right quadplane frame class and
-frame type.
+:ref:`Q_ENABLE<Q_ENABLE>` to 1 and Tilt Rotor support by setting :ref:`Q_TILT_ENABLE<Q_TILT_ENABLE>` = "1", and then choose the right quadplane frame class and frame type.
 
 The quadplane frame class is in :ref:`Q_FRAME_CLASS<Q_FRAME_CLASS>` . The frame class is
 chosen based on your vehicles rotor configuration while
@@ -203,7 +202,7 @@ ArduPilot tilt-rotor code:
 - once a forward transition is completed then the motors will cover
   any remaining angle at 90 degrees per second.
 
-.. note:: For Binary type tilt servos these rates should be set at the actual measured rate of the servo since it's independent of ArudPilot control.
+.. note:: For Binary type tilt servos these rates should be set at the actual measured rate of the servo since it's independent of ArduPilot control.
 
 Tilt Stabilization Assist in Fixed Wing Flight
 ==============================================
@@ -286,7 +285,12 @@ Tilt Rotor Movement Setup
 Also:
     :ref:`Tilt Rotor Servo Setup<tilt-rotor-setup>`
 
+Tilt Wing Flap Emulation
+========================
 
+Tilt Wing Tilt Rotors are where the entire wing rotates, instead of the motors. These frames use the "TiltMotorsFront" ``SERVOx_FUNCTION`` (41) to tilt the entire wing for fixed-wing or VTOL operation.
+
+You can  also set up the wing to tilt just like (or in addition to) normal manually controlled or :ref:`automaticflaps <automatic-flaps>`, and the wing will tilt in fixed wing modes just as a flap would activate. The amount of wing tilt when flaps are fully extended is set by the :ref:`Q_TILT_WING_FLAP<Q_TILT_WING_FLAP>` parameter to tilt the wing up to 15 degrees when full flaps are activated.
 
 Pre Flight Checks
 =================

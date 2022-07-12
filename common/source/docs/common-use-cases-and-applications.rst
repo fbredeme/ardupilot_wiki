@@ -21,6 +21,17 @@ Use Cases
 
 .. image:: ../../../images/case-tractor.jpg
 
+
+- `Autonomous Vehicle Collision Avoidance <https://discuss.ardupilot.org/t/cmu-nrec-falco-drone-safe-flights-by-agile-collision-avoidance/83300>`__
+
+.. image:: ../../../images/case-cmu-nrec-drone.png
+
+
+..  youtube:: k6jKkpmj4-k
+    :width: 640
+    :height: 480
+
+
 .. toctree::
     :maxdepth: 1
 

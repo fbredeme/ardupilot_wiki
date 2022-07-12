@@ -14,7 +14,6 @@ tuning options for the vehicle.
     Autopilot Output Mapping <common-rcoutput-mapping>
     AutoTune <autotune>
     Auxiliary Function Switches <common-auxiliary-functions>
-    Auxiliary Function Switches (3.6 and earlier) <channel-7-and-8-options>
     Baro Temperature Compensation <common-baro-temp-comp>
     Boat mode <boat-mode>
     Bootloader Update <common-bootloader-update>
@@ -37,12 +36,12 @@ tuning options for the vehicle.
     Compass Setup (Advanced) <common-compass-setup-advanced>
     Compass-less Operation<common-compassless>
 [site wiki="copter"]
-    Copter Airspeed/Drag/Baro Compensation Estimation <airspeed-estimation>
     Current Limiting and Voltage Scaling <current-limiting-and-voltage-scaling>
 [/site]
 [site wiki="plane"]
     Crash Detection <crash-detect>
 [/site]
+    DroneCAN Setup <common-uavcan-setup-advanced>
     EKF (Extended Kalman Filter) <common-apm-navigation-extended-kalman-filter-overview>
     EKF Affinity & Lane Switching <common-ek3-affinity-lane-switching>
     EKF Sources and Selection <common-ekf-sources>
@@ -83,6 +82,8 @@ tuning options for the vehicle.
 [site wiki="copter"]
     Motor Thrust Scaling <motor-thrust-scaling>
 [/site]
+    Moving Vehicle Initialization <common-moving-vehicle-initialization>
+    Multiple Radio Control Receivers <common-multiple-rx>
 [site wiki="copter,rover"]
     Non-GPS Navigation <common-non-gps-navigation-landing-page>
 [/site]
@@ -92,13 +93,14 @@ tuning options for the vehicle.
 [/site]
     Object Avoidance <common-object-avoidance-landing-page>
 [site wiki="copter,plane"]
-    Optical Flow Sensor <common-optical-flow-sensor-setup>
+    Optical Flow Sensor <common-optical-flow-sensors-landingpage>
 [/site]
     OSD Parameter Editor <common-paramosd>
     Parameter List (Full) <parameters>
     Parameter Reset <common-parameter-reset>
     RC Input Channel Mapping (RCMAP) <common-rcmap>
     RC Options <common-rc-options>
+    Redundant Telemetry <common-redundant-telemetry>
 [site wiki="plane"]
     Reverse Thrust Setup<reverse-thrust-setup>
 [/site]
@@ -107,6 +109,9 @@ tuning options for the vehicle.
     Sensor Testing <common-sensor-testing>
     Serial Port to Port Passthrough <common-serial-passthrough>
     Serial Port Configuration <common-serial-options>
+[site wiki="plane"]
+    Ship(Moving Vehicle) Takeoff/Landing <common-ship-landing>
+[/site]
 [site wiki="copter"]
     Surface Tracking  <terrain-following-manual-modes>
 [/site]
@@ -122,7 +127,7 @@ tuning options for the vehicle.
     Terrain Following <common-terrain-following>
     Transmitter Based Tuning <common-transmitter-tuning>
 [/site]
-    DroneCAN Setup <common-uavcan-setup-advanced>
+    Video Stabilization (Gyroflow) <common-gyroflow>
     Video Transmitter Control <common-vtx>
 [site wiki="copter,plane,rover,planner"]
     UBlox GPS Configuration <common-ublox-gps>
@@ -130,4 +135,6 @@ tuning options for the vehicle.
 [site wiki="plane,planner,rover"]
     Vibration Damping <common-vibration-damping>
 [/site]
-
+[site wiki="copter"]
+    Windspeed Estimation and Baro Compensation <airspeed-estimation>
+[/site]

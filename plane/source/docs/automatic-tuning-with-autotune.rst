@@ -26,6 +26,8 @@ To setup your aircraft for AUTOTUNE you need to select AUTOTUNE mode as
 one of the flight modes selectable with the flight mode switch on your
 transmitter.
 
+.. note:: as of version 4.1.3, you can AutoTune in any stabilized flight mode, such as CRUISE or FBWA/B, LOITER, or even during an AUTO mission segment (if :ref:`STICK_MIXING<STICK_MIXING>` is enabled), via an ``RCx_OPTION`` switch set to 107.
+
 You also should choose a tuning level by setting the :ref:`AUTOTUNE_LEVEL<AUTOTUNE_LEVEL>`
 parameter in the advanced parameter screen of your ground station. The
 :ref:`AUTOTUNE_LEVEL<AUTOTUNE_LEVEL>` parameter controls how aggressive you want the tune to
@@ -136,6 +138,30 @@ too early end up up with poor values that result in their aircraft not
 coping well with wind, or not holding altitude well. Keep flying in
 AUTOTUNE mode well past the point where you think the plane is flying
 well.
+
+If you have an OSD or Ground Control Station, then messages for D and P tuning phases for the axis, as well as a "Tuning Completed" message will be displayed. Once tuning is completed, it is saved.
+
+Tuning light, agile aircraft
+----------------------------
+
+Very light, agile aircraft may fail to complete the tune, or result in a tune that has small oscillations, often in the pitch axis since it has low inertia. In these cases, it may be beneficial to do the following and re-attempt the Autotune:
+
+- Increase the main loop rate, :ref:`SCHED_LOOP_RATE<SCHED_LOOP_RATE>` to "200" (Hz) and set the :ref:`ONESHOT_MASK<ONESHOT_MASK>` to those outputs controlling flight surface control servos (if they are capable of doing 200Hz updates...most digital servos are capable of this...check to see that they are not overheating as you move them). This increases the control update rate and decreases delay, increasing phase margin to attempt to eliminate small oscillations and increase accuracy.
+
+- Set the :ref:`INS_GYRO_FILTER<INS_GYRO_FILTER>` to "40" (Hz) cutoff and increase the :ref:`PTCH_RATE_FLTT<PTCH_RATE_FLTT>` and :ref:`RLL_RATE_FLTT<RLL_RATE_FLTT>` to "20" (Hz) to reduce delay and increase phase margin.
+
+.. note:: increasing the gyro filter cutof may allow more system noise into the control loops and setting up a :ref:`dynamic throttle notch filter<common-throttle-based-notch>` or :ref:`in-flight FFT<common-imu-fft>` is recommended (if your autopilot firmware includes this feature.. see: :ref:`Firmware Limitations<common-limited_firmware>` ).
+
+ACRO Mode YAW Rate Controller
+=============================
+
+As of version 4.2, ArduPilot provides the option for utilization of a rate controller for YAW, which behaves in the same manner as the pitch and roll controllers, but for the YAW axis controlled by the Rudder stick, assuming the vehicle has a rudder control surface.
+
+To enable this functionality, set :ref:`YAW_RATE_ENABLE<YAW_RATE_ENABLE>` to 1. When enabled, the :ref:`ACRO_YAW_RATE<ACRO_YAW_RATE>` parameter can be used to adjust maximum yaw rate demanded at rudder stick full deflections in ACRO mode.
+
+This controller can be AutoTuned in the same manner as the pitch and roll axes, and in the same session using the Rudder control stick to produce the rapid yaw demands used by AUTOTUNE.
+
+.. note:: while AutoTuning with this controller enabled, it will resist any non-pilot commanded yaw changes, (ie like traditional helicopter "heading hold" gyros), just as in ACRO mode with the yaw rate controller active. Banking the aircraft will NOT result in a turn, or at least a poorly executed turn. Pilot rudder inputs in turns will be needed.
 
 Autotune Level 0
 ================

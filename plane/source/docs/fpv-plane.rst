@@ -163,9 +163,10 @@ and rebooting/reconnecting to the FC.
 
 -  Receiver RSSI
 
-ArduPilot supports either analog RSSI or PWM RSSI (also known as "Digital RSSI") embedded in an RC channel. For
-analog (voltage-type), set :ref:`RSSI_TYPE<RSSI_TYPE>` =1 and reboot, for PWM set :ref:`RSSI_TYPE<RSSI_TYPE>` =2. The remaining RSSI
-parameters will not appear until this parameter is set and saved and your FC rebooted.
+ArduPilot supports either analog RSSI or PWM RSSI (also known as "Digital RSSI") embedded in an RC channel. ArduPilot also supports RSSI provided
+directly by the RC protocol (like CRSF). For
+analog (voltage-type), set :ref:`RSSI_TYPE<RSSI_TYPE>` =1 and reboot, for PWM set :ref:`RSSI_TYPE<RSSI_TYPE>` =2, and for RC protocol provided set :ref:`RSSI_TYPE<RSSI_TYPE>` =3 . The remaining RSSI
+parameters will not appear until this parameter is set and saved and your FC rebooted. For Analog RSSi adjust these:
 
     :ref:`RSSI_ANA_PIN<RSSI_ANA_PIN>` =x (see :ref:`this page for details <common-rssi-received-signal-strength-indication>`)
     
@@ -213,13 +214,13 @@ using the following formula:
 
 - Compass
 
-Tradition fixed wing Arduplane does not need a compass for good performance,  as opposed to Copter or
-Quadplane which require a compass for yaw alignment. Even if you have a compass, disable it until you have
+Tradition fixed wing ArduPlane does not need a compass for good performance,  as opposed to Copter or
+QuadPlane which require a compass for yaw alignment. Even if you have a compass, disable it until you have
 everything else working. Then you can expand to it. Uncheck "Use this compass" for every compass in Mission Planner's SETUP/Compass screen.
 
 - Airspeed
 
-Arduplane does not need an airspeed sensor for basic performance. A fairly accurate synthetic airspeed estimate is calculated and gives
+ArduPlane does not need an airspeed sensor for basic performance. A fairly accurate synthetic airspeed estimate is calculated and gives
 good basic performance. In order to display this in the OSD, you will need to set :ref:`ARSPD_TYPE<ARSPD_TYPE>` =0. Feel free to add/enable a pitot sensor later to improve cruise flight target airspeed precision, or automatic landing airspeed control.
 
 - Other Parameters

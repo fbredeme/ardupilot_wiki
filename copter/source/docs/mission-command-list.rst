@@ -109,12 +109,18 @@ Loiter_Turns
 The mission equivalent of the :ref:`Circle flight mode <circle-mode>`.  The vehicle will fly a circle around the
 specified lat, lon, and altitude (in meters).  The radius of the circle
 is controlled by the :ref:`CIRCLE_RADIUS<CIRCLE_RADIUS>` parameter (i.e. cannot be set as
-part of the mission).
+part of the mission).  The direction can be changed to counter-clockwise by setting :ref:`CIRCLE_RATE<CIRCLE_RATE>` to a negative number.
 
 **Turn** - the number of full rotations to complete around the point.
 
-**Dir 1=CW** - the direction to turn around the point. -1 = counter
-clockwise, +1 = clockwise.
+**Radius** - Loiter radius around waypoint. Units are in meters.
+
+-  0-255 is 0-255 meters.
+-  256-259 is 250 meters. Note: The radius will be smaller than the set value.
+-  260-269 is 260 meters.
+-  270-279 is 270 meters.
+-  :
+-  2550 and above, 2550 meters.
 
 **Lat, Lon** - the latitude and longitude targets.  If left as zero it
 will circle around the current location.
@@ -169,8 +175,6 @@ Delay
 .. image:: ../../../images/MissionList_NavDelay.png
     :target: ../_images/MissionList_NavDelay.png
 
-Support for the Delay command was added in Copter-3.4.
-
 The vehicle will remain at its current location until the specified number of seconds has passed or the absolute time is reached.
 The first column ("Seconds") holds the number of seconds to delay.  Set to -1 if this field should be ignored.
 The "hour UTC", "minute UTC" and "second UTC" fields can be used to specify an absolute time (`UTC <https://en.wikipedia.org/wiki/Coordinated_Universal_Time>`__).  The example above will cause the vehicle to take-off at 1:30pm UTC.  Note that the hour and/or minute field can also be ignored by setting them to -1.
@@ -180,13 +184,11 @@ This is a video made during the development of this feature.  Note in the video 
 ..  youtube:: 9VK3yjIyCSo
     :width: 100%
 
-Package Place
+Payload Place
 ~~~~~~~~~~~~~
 
 .. image:: ../../../images/MissionList_packageplace.png
     :target: ../_images/MissionList_packageplace.png
-
-Support for Package Place was added in Copter-3.5.
 
 The vehicle flies to the specified location and descends until it senses (using motor output) that the package has reached the ground.  The gripper is then released to unload the package.
 The first column ("Max Desc") holds the maximum descent (in meters) that the vehicle should descend.  If the package has still not reached the ground despite this descent, the package will not be released and the vehicle will advance to the next mission command.
@@ -298,7 +300,7 @@ command.
 
 .. warning::
 
-   No more that fifteen (15) Do-Jump commands can be used in a mission.  Subsequent Do-Jumps will be ignored.
+   No more that one hundred (100) Do-Jump commands can be used in a mission. This value is further reduced to fifteen (15) Do-Jump commands for boards with less than 500kb of ram. Subsequent Do-Jumps will be ignored.
 
 Do-Change-Speed
 ~~~~~~~~~~~~~~~
@@ -354,7 +356,7 @@ columns are mislabeled in the Mission Planner (issue here).
 **First column is Relay number** : 0 = First Relay, 1 = Second Relay
 
 **Second column is On/Off** : 0 = Off (i.e. 0V), 1 = On (i.e. 3.3V on
-Pixhawk, 5V on APM)
+most autopilots)
 
 Do-Repeat-Relay
 ~~~~~~~~~~~~~~~

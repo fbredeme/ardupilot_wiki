@@ -26,18 +26,21 @@ There a number of problems that can prevent AutoTune from providing a good tune 
 
 Setup before flying in AutoTune mode
 ====================================
-#. Set up one flight mode switch position to be AltHold.
-#. Set an RC channel :ref:`Auxiliary Function <common-auxiliary-functions>` switch or an :ref:`Auxiliary Function Switch <channel-7-and-8-options>` (prior to version 4.0) to AutoTune to allow you to turn the auto tuning on/off with the a switch.
-#. Remove the camera gimbal or any other parts of the frame that could wobble in flight
-#. Select which combination of axis (roll, pitch, yaw) you wish to tune using the :ref:`AUTOTUNE_AXES <AUTOTUNE_AXES>` parameter
-#. Set the autotune's aggressiveness using the :ref:`AUTOTUNE_AGGR <AUTOTUNE_AGGR>` parameter (0.1=agressive, 0.075=medium, 0.050=weak), normally start with the default 0.1.
-#. For large copters (with props at least 13inch or 33cm diameter) set the Rate Roll and Pitch filters to 10hz, these are: :ref:`ATC_RAT_RLL_FLTT <ATC_RAT_RLL_FLTT__AC_AttitudeControl_Multi>` , :ref:`ATC_RAT_RLL_FLTD<ATC_RAT_RLL_FLTD__AC_AttitudeControl_Multi>` , :ref:`ATC_RAT_PIT_FLTT <ATC_RAT_PIT_FLTT__AC_AttitudeControl_Multi>` , :ref:`ATC_RAT_PIT_FLTD <ATC_RAT_PIT_FLTD__AC_AttitudeControl_Multi>` , (in Copter-3.4 they are ATC_RAT_RLL_FILT and ATC_RAT_PIT_FILT) 
-#. It is recommended to enable :ref:`battery voltage scaling of PID gains <current-limiting-and-voltage-scaling>`
+1. Set up one flight mode switch position to be AltHold.
+2. Set an RC channel :ref:`Auxiliary Function <common-auxiliary-functions>` switch or an :ref:`Auxiliary Function Switch <channel-7-and-8-options>` (prior to version 4.0) to AutoTune to allow you to turn the auto tuning on/off with the a switch.
+
+.. note:: you can also set the AUTOTUNE flight mode as a mode on your flight mode switch to activate AutoTune
+
+3. Remove the camera gimbal or any other parts of the frame that could wobble in flight
+4. Select which combination of axis (roll, pitch, yaw) you wish to tune using the :ref:`AUTOTUNE_AXES <AUTOTUNE_AXES__AC_AutoTune_Multi>` parameter
+5. Set the autotune's aggressiveness using the :ref:`AUTOTUNE_AGGR <AUTOTUNE_AGGR>` parameter (0.1=agressive, 0.075=medium, 0.050=weak), normally start with the default 0.1.
+6. For large copters (with props at least 13inch or 33cm diameter) set the Rate Roll and Pitch filters to 10hz, these are: :ref:`ATC_RAT_RLL_FLTT <ATC_RAT_RLL_FLTT__AC_AttitudeControl_Multi>` , :ref:`ATC_RAT_RLL_FLTD<ATC_RAT_RLL_FLTD__AC_AttitudeControl_Multi>` , :ref:`ATC_RAT_PIT_FLTT <ATC_RAT_PIT_FLTT__AC_AttitudeControl_Multi>` , :ref:`ATC_RAT_PIT_FLTD <ATC_RAT_PIT_FLTD__AC_AttitudeControl_Multi>` , (in Copter-3.4 they are ATC_RAT_RLL_FILT and ATC_RAT_PIT_FILT) 
+7. It is recommended to enable :ref:`battery voltage scaling of PID gains <current-limiting-and-voltage-scaling>`
 
 How to invoke AutoTune
 ======================
 #. Wait for a calm day and go to a large open area.
-#. Ensure the ch7 or ch8 switch is in the LOW position.
+#. Ensure the ch7 or ch8 switch, if used, is in the LOW position.
 #. Take off and put the copter into AltHold mode at a comfortable
    altitude.
 #. Face the vehicle so that it will twitch at 90degrees from the direction the wind is blowing (i.e. if tuning Roll first, point the vehicle into the wind)
@@ -45,7 +48,7 @@ How to invoke AutoTune
    .. image:: ../images/autotune_copterwind.png
        :target: ../_images/autotune_copterwind.png
        :width: 500px
-#. Set the ch7/ch8 switch to the HIGH position to engage auto tuning:
+#. Set the ch7/ch8 switch to the HIGH position, or switch to AUTOTUNE mode, to engage auto tuning:
 
    -  You will see it twitch about 20 degrees left and right for a few
       minutes, then it will repeat forward and back.
@@ -53,7 +56,7 @@ How to invoke AutoTune
       if it drifts away (it will use the original PID gains during
       repositioning and between tests).  When you release the sticks it
       will continue auto tuning where it left off.
-   -  Move the ch7/ch8 switch into the LOW position at any time to
+   -  Move the ch7/ch8 switch into the LOW position, or change flight mode if using AUTOTUNE flight mode, at any time to
       abandon the autotuning and return to the origin PIDs.
    -  Make sure that you do not have any trim set on your transmitter or
       the autotune may not get the signal that the sticks are centered.
@@ -61,14 +64,14 @@ How to invoke AutoTune
 #. When the tune completes the copter will change back to the original
    PID gains.
 #. Put the ch7/ch8 switch into the LOW position then back to the HIGH
-   position to test the tuned PID gains.
-#. Put the ch7/ch8 switch into the LOW position to fly using the
+   position to test the tuned PID gains, or if using the AUTOTUNE flight mode, switch out and then back into that mode.
+#. Put the ch7/ch8 switch into the LOW position, or switch out of AUTOTUNE flight mode, to fly using the
    original PID gains.
 #. If you are happy with the autotuned PID gains, leave the ch7/ch8
-   switch in the HIGH position, land and disarm to save the PIDs
+   switch in the HIGH position, or switch back into AUTOTUNE flight mode and land and disarm to save the PIDs
    permanently.
 
-   If you DO NOT like the new PIDS, switch ch7/ch8 LOW to return to the
+   If you DO NOT like the new PIDS, switch ch7/ch8 LOW or out of AUTOTUNE flight mode, to return to the
    original PIDs. The gains will not be saved when you disarm.
 
 If you find after performing an AutoTune that the vehicle feels overly twitchy when flying Stabilize, AltHold or PosHold (but ok in more
@@ -82,9 +85,9 @@ Invoke AutoTune with Position Hold
 
 .. warning::
 
-   A better tune can often be achieved by invoking AutoTune from AltHold as described above instead of from Loiter or PosHold as described below
+   A better tune can often be achieved by invoking AutoTune from AltHold as described above instead of from Loiter or PosHold as described below. Using AUTOTUNE flight mode also has this possible disadvantage.
    
-AutoTune performs a weak position hold if invoked from Loiter or PosHold flight modes (as opposed to AltHold) while doing an autotune.
+AutoTune performs a weak position hold if invoked from Loiter or PosHold flight modes (as opposed to AltHold) while doing an autotune. If using the AUTOTUNE flight mode, this weak position hold is also used.
 
    .. image:: ../images/autotune_from_loiter.png
        :target: ../_images/autotune_from_loiter.png
@@ -92,6 +95,11 @@ AutoTune performs a weak position hold if invoked from Loiter or PosHold flight 
 
 - The vehicle will gently lean (up to 10 degrees) towards a "target point" which is initially set to the vehicle's location at the moment AutoTune was invoked.
 - The pilot can reposition the vehicle using the roll, pitch, yaw or throttle sticks.  The target position will be reset to the vehicle's location at the moment the pilot releases the roll and pitch sticks.
+-  The altitude is maintained with the altitude hold controller so the
+   vehicle will attempt to hold its current altitude when the sticks
+   are placed with 10% of mid-throttle. It will climb or descend at up
+   to 2.5m/s (this speed is adjustable with the :ref:`PILOT_SPEED_UP<PILOT_SPEED_UP>` and :ref:`PILOT_SPEED_DN<PILOT_SPEED_DN>`
+   parameters). The acceleration used to establish these speeds is set by :ref:`PILOT_ACCEL_Z<PILOT_ACCEL_Z>`.
 - In order to twitch perpendicular to the wind direction, the vehicle may suddenly rotate in either direction up to 90 degrees as it drifts 5m (or more) from the target location.
 - If there is little or no wind, the vehicle's gentle position control may mean it moves back and forth, ping ponging around the target point changing yaw each time it strays more than 5m from the target.  In these cases it may be more comfortable to revert the simpler AltHold based AutoTune. 
 
@@ -119,7 +127,7 @@ Additional Notes
 ================
 
 -  In Copter-3.3 (and higher) AutoTune can be setup as a flight-mode.  Switching into or out of the AutoTune flight mode responds in the same way as raising or lowering a ch7/ch8 aux switch high assigned the AutoTune function.
--   :ref:`AUTOTUNE_AXES <AUTOTUNE_AXES>` allows control of which axis are to be tuned.  This is useful if the vehicle's battery life is not long enough to complete all 3-axis).  "1" = tune roll, "2" = tune pitch, "4" = tune yaw.  Add these numbers together to tune multiple axis in a single session (i.e. "7" = tune all axis)
+-   :ref:`AUTOTUNE_AXES <AUTOTUNE_AXES__AC_AutoTune_Multi>` allows control of which axis are to be tuned.  This is useful if the vehicle's battery life is not long enough to complete all 3-axis).  "1" = tune roll, "2" = tune pitch, "4" = tune yaw.  Add these numbers together to tune multiple axis in a single session (i.e. "7" = tune all axis)
 -   :ref:`AUTOTUNE_AGGR <AUTOTUNE_AGGR>` : Should be in the range of 0.05 to 0.10.  Higher values will produce a more aggressive tune but sometimes results in gains that are too high.  More specifically this parameter controls the threshold for D-term bounce back and P-term overshoot. This affects the tuning noise immunity (a higher value is more tolerant to flex in the frame or other disturbances that could trick the tuning algorithm).  High values also leads to a tune that rejects external disturbances better.  Lower values result in a tune that is more responsive to pilot input.
 
 -   The full list of parameters that may be updated by AutoTune

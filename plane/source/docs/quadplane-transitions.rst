@@ -35,7 +35,9 @@ Transition to Fixed Wing Mode from VTOL
 
 .. note:: Usually by this time the VTOL motor contribution is already very low, since the QuadPlane is already flying, providing lift or climbing, and the VTOL contribution is only aiding attitude stabilization as required.
 
--  If :ref:`Q_TRANS_FAIL<Q_TRANS_FAIL>` is not zero, then exceeding this time before reaching  :ref:`ARSPD_FBW_MIN <ARSPD_FBW_MIN>` airspeed will cancel the transition and the aircraft will immediately change to QLAND. The default is 0, which disables this timeout.
+-  If :ref:`Q_TRANS_FAIL<Q_TRANS_FAIL>` is not zero, then exceeding this time before reaching  :ref:`ARSPD_FBW_MIN <ARSPD_FBW_MIN>` airspeed will cancel the transition and the aircraft will immediately execute the action specified by :ref:`Q_TRANS_FAIL_ACT<Q_TRANS_FAIL_ACT>`. The default is 0, which disables this timeout.
+
+.. note:: if bit 19 of :ref:`Q_OPTIONS<Q_OPTIONS>` is set and :ref:`Q_TRANS_FAIL<Q_TRANS_FAIL>` is not zero, and if the airspeed is greater than 1/2 of :ref:`ARSPD_FBW_MIN<ARSPD_FBW_MIN>`, then the transition to fixed wing will immediately complete. This is useful if no airspeed sensor is being used, and the transition is into a headwind, which could prevent an accurate airspeed estimate from being obtained until a turn is made. Without using the :ref:`Q_TRANS_FAIL<Q_TRANS_FAIL>` timeout and this Q_OPTION, the transition could be indefinitely long since airspeed might be reported as below :ref:`ARSPD_FBW_MIN<ARSPD_FBW_MIN>` due to low groundspeed.
 
 
 Transition to a VTOL mode from Fixed Wing
@@ -49,7 +51,10 @@ for transitions to QuadPlane modes while flying at high speed. Tilt-rotors will,
 - VTOL attitude control will be provided as needed as the vehicle slows.
 - Transition to altitude holding VTOL modes will manage power to the VTOL motors as necessary to hold altitude as the vehicle slows from forward fixed wing flight.
 - Transition to non-altitude holding VTOL modes will provide vertical thrust as commanded by the throttle.
-- Transition to QLOITER will project a stopping position to maintain based on deceleration of the vehicle and then hold it once reached.
+- Transition to position holding modes will project a stopping position to maintain based on deceleration of the vehicle and then hold it once reached.
+- When transitioning to a position holding mode, like QLIOTER, QuadPlane will try to decelerate, which can result in the nose pitching up rapidly if traveling at high speeds. In order to prevent this, the pitch is initially limited to 0 degrees, relaxing this limit to the smaller of :ref:`Q_ANGLE_MAX<Q_ANGLE_MAX>` or :ref:`LIM_PITCH_MAX<LIM_PITCH_MAX>` over the period of :ref:`Q_BACKTRANS_MS<Q_BACKTRANS_MS>`.
+
+..note:: this phased-in pitch limit is applied for all fixed wing to VTOL transitions, except for transitions to QACRO.
 
 The one exception to the forward motor stopping in QuadPlane VTOL
 modes is if you have the :ref:`Q_VFWD_GAIN <Q_VFWD_GAIN>` parameter set to a non-zero

@@ -8,7 +8,7 @@ FETtec OneWire ESCs
 
 .. image:: ../../../images/FETtec_4in1_ESC.jpg
 
-OneWire is an `ESC bi-directional communication protocol <https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_FETtec_OneWire>`_ from FETtec.
+OneWire is an `ESC bi-directional communication protocol <https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_FETtecOneWire>`_ from FETtec.
 
 FETtec OneWire ESC's telemetry information is sent back to the autopilot:
 
@@ -187,7 +187,7 @@ SITL simulation
 The ESCs can be simulated in SITL by adding ``--uartF=sim:fetteconewireesc`` to the SITL command line and setting the following additional parameters:
 
 - :ref:`SERIAL5_PROTOCOL<SERIAL5_PROTOCOL>` = 38
-- ``SIM_FTOWESC_ENA<SIM_FTOWESC_ENA>`` = 1
+- ``SIM_FTOWESC_ENA`` = 1
 
 This assumes you use SERIAL5 for simulation.
 If you want to use another one you need to adjust both the SITL command line argument and the `SERIAL*_PROTOCOL` parameter.
@@ -202,6 +202,6 @@ Troubleshooting
 - The ESCs are not initializing.
    Check if the parameters are correct. Also make sure the telemetry pin is connected, as it will not work without it. 
 - ESCs are not found in FETtec configurator.
-   A halfduplex 2MBaud/s serial connection is required for the use with the FETtec configurator, which is currently not supported by Ardupilot. You need to use a external serial  device like a FETtec FC or a USB serial adapter. Please disconnect the Ardupilot FC from the ESCs to find it in the FETtec configurator.
+   A halfduplex 2MBaud/s serial connection is required for the use with the FETtec configurator, which is currently not supported by ArduPilot. You need to use a external serial  device like a FETtec FC or a USB serial adapter. Please disconnect the ArduPilot FC from the ESCs to find it in the FETtec configurator.
    
 

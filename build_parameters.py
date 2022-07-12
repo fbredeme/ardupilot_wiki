@@ -9,15 +9,15 @@
 
     * Before start:
         * Folder and file management tested only in linux;
-        * It is supposed to have the wiki repo in a same level of an Ardupilot repo and two other folders named new_params_mvesion/ and old_params_mversion/
+        * It is supposed to have the wiki repo in a same level of an ArduPilot repo and two other folders named new_params_mvesion/ and old_params_mversion/
 
     * First step is go to each vehicle on firmware.ardupilot.org and get all available versions namely as stable/beta/latest.
         * For each version it gets a board and get git_version.txt file;
         * It parsers that to get the version and commit hash;
         * It creates a dictionary with vehicles, versions and commit hashes.
     
-    * Second step is use the dict to navigates on a Ardupilot Repo, changing checkouts to desidered hashes.
-        * Relies on ArdupilotRepoFolder/Tools/autotest/param_metadata/param_parse.py to generate the parameters files;
+    * Second step is use the dict to navigates on a ArduPilot Repo, changing checkouts to desidered hashes.
+        * Relies on ArduPilotRepoFolder/Tools/autotest/param_metadata/param_parse.py to generate the parameters files;
         * It renames the anchors for all files, except for latest versions. 
 
     * Third step: create the json files and move all generated files.
@@ -38,7 +38,7 @@ parser = argparse.ArgumentParser(description="python3 build_parameters.py [optio
 parser.add_argument("--verbose", dest='verbose', action='store_false', default=True, help="show debugging output")
 parser.add_argument("--ardupilotRepoFolder", dest='gitFolder', default="../ardupilot", help="Ardupilot git folder. ")
 parser.add_argument("--destination", dest='destFolder', default="../../../../new_params_mversion", help="Parameters*.rst destination folder.")
-parser.add_argument('--vehicle', dest='single_vehicle', help="If you just want to copy to one vehicle, you can do this. Otherwise it will work for all vehicles (Copter, Plane, Rover, AntennaTracker, Sub)")
+parser.add_argument('--vehicle', dest='single_vehicle', help="If you just want to copy to one vehicle, you can do this. Otherwise it will work for all vehicles (Copter, Plane, Rover, AntennaTracker, Sub, Blimp)")
 args = parser.parse_args()
 
 error_count = 0
@@ -48,7 +48,7 @@ error_count = 0
 ## Parameters
 COMMITFILE = "git-version.txt"
 BASEURL = "https://firmware.ardupilot.org/"
-ALLVEHICLES =  ["AntennaTracker", "Copter" ,  "Plane", "Rover"] 
+ALLVEHICLES =  ["AntennaTracker", "Copter" ,  "Plane", "Rover", "Blimp"] 
 VEHICLES = ALLVEHICLES
 
 BASEPATH = ""
@@ -60,6 +60,7 @@ vehicle_new_to_old_name = { # Used because "param_parse.py" args expect old name
     "Copter":"ArduCopter",
     "Plane":"ArduPlane",
     "AntennaTracker":"AntennaTracker",  # firmware server calls Tracker as AntennaTracker
+    "Blimp":"Blimp",
 }
 
 vehicle_old_to_new_name = { # Used because git-version.txt use APMVersion with old names
@@ -69,6 +70,7 @@ vehicle_old_to_new_name = { # Used because git-version.txt use APMVersion with o
     "ArduCopter":"Copter",
     "ArduPlane":"Plane",
     "AntennaTracker":"AntennaTracker",  # firmware server calls Tracker/atennatracker as AntennaTracker
+    "Blimp":"Blimp",
 }
 
 
@@ -276,6 +278,10 @@ def get_commit_dict(releases_parsed):
                 elif re.search('racker', vehicle, re.IGNORECASE):
                     vehicle = "Tracker"
                     debug("Bad vehicle name auto fixed to TRACKER on:\t" + fetch_link)
+
+                elif re.search('blimp', vehicle, re.IGNORECASE):
+                    vehicle = "Blimp"
+                    debug("Bad vehicle name auto fixed to BLIMP on:\t" + fetch_link)
                     
                 else:
                     error("Nomenclature exception found in a vehicle name:\t" + vehicle + "\tLink with the exception:\t" + fetch_link)
@@ -506,7 +512,7 @@ def print_versions(commits_to_checkout_and_parse):
 
 
 # Step 1 - Select the versions for generate parameters
-setup()                                                             # Reset the Ardupilot folder/repo
+setup()                                                             # Reset the ArduPilot folder/repo
 feteched_releases = fetch_releases(BASEURL, VEHICLES)               # All folders/releases.
 commits_to_checkout_and_parse = get_commit_dict(feteched_releases)  # Parse names, and git hashes.
 print_versions(commits_to_checkout_and_parse)                       # Present work dict.

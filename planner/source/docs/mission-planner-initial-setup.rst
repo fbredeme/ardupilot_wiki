@@ -39,7 +39,7 @@ Mandatory Hardware
 
 You will see this menu item If the auto pilot IS connected.  Click this
 menu item to see the items you must setup before you attempt to
-operate your vehicle.  Specifics are located in the Ardupilot.org documents which
+operate your vehicle.  Specifics are located in the ArduPilot.org documents which
 cover you specific vehicle (Copter, Plane, Rover).
 
 .. image:: ../../../images/MP-mandatory-hardware.png
@@ -62,7 +62,7 @@ Optional Hardware
 This submenu allows the configuration of optional devices, many of which can be configured while Mission Planner is unconnected. Programming of the Sik  Telemetry Radio, UAVCAN setup, PX4 Optical Flow sensor,Antenna Tracker can be done here, as well as setup of a joystick to be used in conjunction with Mission Planner.
 
 
-When connected, peripherals such as Battery Monitors, Integrated OSD, Airspeed Sensors, and Rangefinders can be configured. Also, this submenu has a Motor Test function allowing you to test direction and order of Copter and Quadplane Motors.
+When connected, peripherals such as Battery Monitors, Integrated OSD, Airspeed Sensors, and Rangefinders can be configured. Also, this submenu has a Motor Test function allowing you to test direction and order of Copter and QuadPlane Motors.
 
 Advanced
 ~~~~~~~~

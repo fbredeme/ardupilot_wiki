@@ -1,5 +1,5 @@
 .. _common-3dr-radio-advanced-configuration-and-technical-information:
-
+[copywiki destination="plane,copter,rover,blimp"]
 ==================================
 SiK Radio — Advanced Configuration
 ==================================
@@ -199,6 +199,8 @@ no ECC enabled will be good.
 
 Error correction
 ================
+
+.. warning:: Using error correction is no longer recommended due to the range reduction and the fact that some newer radio chips are not capable of doing ECC and will fail to function if this option is selected.
 
 As mentioned above, the radios support a 12/24 Golay error correcting
 code if you set the ECC parameter to 1. This means that for every 12

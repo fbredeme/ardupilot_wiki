@@ -9,7 +9,7 @@ in order to receive telemetry and control the vehicle.
 
 .. note::
 
-   There are separate instructions for connecting in order to :ref:`Load Firmware <common-loading-firmware-onto-pixhawk>` for existing Ardupilot firmware installations, or for boards :ref:`without existing Ardupilot firmware <common-loading-firmware-onto-chibios-only-boards>` .
+   There are separate instructions for connecting in order to :ref:`Load Firmware <common-loading-firmware-onto-pixhawk>` for existing ArduPilot firmware installations, or for boards :ref:`without existing ArduPilot firmware <common-loading-firmware-onto-chibios-only-boards>` .
 
 
 Setting up the connection
@@ -129,4 +129,4 @@ Related topics
 
 :ref:`Mission Planner Bluetooth Connectivity <common-mission-planner-bluetooth-connectivity_detailed_connecting_with_mission_planner>`
 
-[copywiki destination="plane,copter,rover,planner"]
+[copywiki destination="plane,copter,rover,planner,blimp"]

@@ -22,6 +22,12 @@ information related to Autopilot selection see :ref:`Autopilot Hardware Options 
 [site wiki="plane"]
     Airspeed Sensor <airspeed>
 [/site]
+[site wiki="rover, copter"]
+    Airspeed Sensor <common-airspeed-sensor>
+[/site]
+[site wiki="rover"]
+    AIS for Boats <common-ais>
+[/site]
     Barometer (external) <common-baro-external>
 [site wiki="copter,plane,rover"]
     Button Inputs <common-buttons>
@@ -49,7 +55,6 @@ information related to Autopilot selection see :ref:`Autopilot Hardware Options 
     Landing Gear/ Retractable Camera Mount <common-landing-gear>
 [/site]
     LEDs (external) <common-external-leds>
-    Multiple Radio Control Receivers <common-multiple-rx>
 [site wiki="copter,rover"]
 	Non-GPS navigation <common-non-gps-navigation-landing-page>
 [/site]
@@ -57,8 +62,8 @@ information related to Autopilot selection see :ref:`Autopilot Hardware Options 
 [site wiki="copter,plane"]
     Optical Flow Sensor <common-optical-flow-sensors-landingpage>
 [/site]
-[site wiki="copter"]
-    Parachute <parachute>
+[site wiki="copter, plane"]
+    Parachute <common-parachute>
 [/site]
     Power Modules <common-powermodule-landingpage>
     Power Tether <common-power-tether>

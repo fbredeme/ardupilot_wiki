@@ -19,3 +19,6 @@ Installation links for some of the more popular GCS systems are provided below:
    - `Daily builds <https://docs.qgroundcontrol.com/en/releases/daily_builds.html>`__
    
 - :ref:`APM Planner 2 <planner2:home>` (Windows, Mac OS X, Linux): :ref:`Install APM Planner 2 <planner2:installing-apm-planner-2>` -Provides basic functionality, but is not currently well maintained and updated.
+
+[copywiki destination="copter,plane,rover,blimp"]
+

@@ -12,7 +12,14 @@ The ground station or companion computer can request the data it wants (and the 
    - Send a `REQUEST_MESSAGE <https://mavlink.io/en/messages/common.html#MAV_CMD_REQUEST_MESSAGE>`__ command (within a `COMMAND_LONG <https://mavlink.io/en/messages/common.html#COMMAND_LONG>`__ message) to request a single instance of a message.  Note this is only supported on ArduPilot 4.0 and higher
    - create configuration files stored on SD card or in ROMFS specifying message stream rates on a per-channel basis
 
-More details of these methods can be found below.
+Note that the stream rates will temporarily be 4 or more times slower than requested while parameters and waypoints are being sent.
+
+More details on the above methods can be found below.
+
+.. note::
+
+   If you find your message rates are reverting to some fixed value after you set them, it is probably a Ground Control station adjusting the stream rates to suit itself.  Most Ground Control Stations will have a control to stop the GCS doing this - for example in MAVProxy use ``set streamrate -1``
+
 
 Using SRx Parameters
 --------------------
@@ -130,7 +137,7 @@ Send a `COMMAND_LONG <https://mavlink.io/en/messages/common.html#COMMAND_LONG>`_
 
 .. warning::
 
-   If the telemetry link is shared (i.e. multiple GCSs or a GCS and a companion computer) there can be conflicting requests.  The most common example is the Mission Planner using the REQUEST_DATA_STREAM method while a companion copmuter uses SET_MESSAGE_INTERVAL method.  Mission Planner at least allows turning off the REQUEST_DATA_STREAM requests by setting the rates to "-1" (see `Setting the datarate here <https://ardupilot.org/copter/docs/common-mission-planner-telemetry-logs.html#setting-the-datarate>`__).  MAVProxy users can ``set messagerate -1``.
+   If the telemetry link is shared (i.e. multiple GCSs or a GCS and a companion computer) there can be conflicting requests.  The most common example is the Mission Planner using the REQUEST_DATA_STREAM method while a companion copmuter uses SET_MESSAGE_INTERVAL method.  Mission Planner at least allows turning off the REQUEST_DATA_STREAM requests by setting the rates to "-1" (see `Setting the datarate here <https://ardupilot.org/copter/docs/common-mission-planner-telemetry-logs.html#setting-the-datarate>`__).  MAVProxy users can ``set streamrate -1``.
 
 Using REQUEST_MESSAGE
 ---------------------

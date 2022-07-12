@@ -64,6 +64,7 @@ ALL_WIKIS = [
     'ardupilot',
     'mavproxy',
     'frontend',
+    'blimp',
 ]
 COMMON_DIR = 'common'
 
@@ -75,12 +76,14 @@ PARAMETER_SITE = {
     'plane': 'ArduPlane',
     'antennatracker': 'AntennaTracker',
     'AP_Periph': 'AP_Periph',
+    'blimp': 'Blimp',
 }
 LOGMESSAGE_SITE = {
     'rover': 'Rover',
     'copter': 'Copter',
     'plane': 'Plane',
     'antennatracker': 'Tracker',
+    'blimp': 'Blimp',
 }
 error_count = 0
 N_BACKUPS_RETAIN = 10
@@ -205,7 +208,7 @@ def sphinx_make(site, parallel):
                     p.join()
                     procs.remove(p)
                     if p.exitcode != 0:
-                        error('Erro making sphinx(1)')
+                        error('Error making sphinx(1)')
             time.sleep(0.1)
     while len(procs) > 0:
         for p in procs[:]:
@@ -213,7 +216,7 @@ def sphinx_make(site, parallel):
                 p.join()
                 procs.remove(p)
                 if p.exitcode != 0:
-                    error('Erro making sphinx(2)')
+                    error('Error making sphinx(2)')
         time.sleep(0.1)
 
 
@@ -600,7 +603,11 @@ def fetch_versioned_parameters(site=None):
                         new_file = (key +
                                     "/source/docs/" +
                                     filename[str(filename).rfind("/")+1:])
-                        if os.path.isfile(filename.replace("new_params_mversion","old_params_mversion")): # The cached file exists?  # noqa
+                        if not os.path.isfile(new_file):
+                            debug("Copying %s to %s (target file does not exist)" %
+                                (filename, new_file))
+                            shutil.copy2(filename, new_file)
+                        elif os.path.isfile(filename.replace("new_params_mversion","old_params_mversion")): # The cached file exists?  # noqa
 
                             # Temporary debug messages to help with cache tasks.
                             debug("Check cache: %s against %s" % (filename, filename.replace("new_params_mversion","old_params_mversion")))  # noqa

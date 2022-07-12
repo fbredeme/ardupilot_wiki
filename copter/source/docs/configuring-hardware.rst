@@ -27,3 +27,4 @@ camera gimbal, antenna tracker etc.
     ESC Calibration <esc-calibration>
     Configure Motor Range (optional) <set-motor-range>
     Failsafe Mechanisms <failsafe-landing-page>
+    Flight Modes <flight-modes>

@@ -39,7 +39,7 @@ However, by intentionally inducing the appropriate motor tilt into each mount, Y
 
 For H mixing, simply tilt all the motors inward toward the plane by 2-3 degrees, either by shimming or intentional design of the motor mounts. This provides a rotational thrust boost in addition to the torque differential, as the diagonal motor pairs are sped up/slowed down. With additional YAW authority, small motor angle imperfections can be automatically overcome by the autopilot, as well as giving the pilot additional YAW authority.
 
-.. note:: Be aware that Quadplanes rarely have the same yaw authority as multicopters due to the greater mass and surface area to wind that a plane presents. Expect to be only able to face into the wind if it's not relatively calm.
+.. note:: Be aware that QuadPlanes rarely have the same yaw authority as multicopters due to the greater mass and surface area to wind that a plane presents. Expect to be only able to face into the wind if it's not relatively calm.
 
 "LEVEL" Trim
 ============
@@ -53,6 +53,18 @@ However, there is a better way for non-tailsitter QuadPlanes. If mechanically po
 .. note:: Those fabricating their mounts via a 3D printer, this is very easy to do, as well as tilt for yaw enhancement discussed above.
 
 .. note:: Fixed wing pitch "level" trim is set by the AHRS "level" done during accelerometer calibration, which adjusts the :ref:`AHRS_TRIM_Y<AHRS_TRIM_Y>` values, PLUS any :ref:`TRIM_PITCH_CD<TRIM_PITCH_CD>` (in centidegrees). See :ref:`common-accelerometer-calibration` and :ref:`tuning-cruise` for more details.
+
+Trimming VTOL "Level" thru Accelerometer LeveL only Calibration
+---------------------------------------------------------------
+
+There is another, slightly more complex, way to set the VTOL stance pitch trim without using :ref:`Q_TRIM_PITCH<Q_TRIM_PITCH>`:
+
+- Do the normal fixed wing accelerometer calibration. But read and save the :ref:`AHRS_TRIM_Y<AHRS_TRIM_Y>` value after the calibration.
+- Place the vehicle in VTOL stance and set the mode to QSTABILIZE. Be sure that  :ref:`Q_TRIM_PITCH<Q_TRIM_PITCH>` = "0" or the next step will fail.
+- Do a "LEVEL only" accelerometer calibration. In Mission Planner there is a button for this under the Accelerometer calibration. In MAVProxy, its the "ahrstrim" command.
+- Restore the previously noted and saved :ref:`AHRS_TRIM_Y<AHRS_TRIM_Y>` value to restore the fixed wing attitude pitch trim.
+
+In some cases, :ref:`Q_TRIM_PITCH<Q_TRIM_PITCH>` may still need to be adjusted if the calibration stance used is not the true hovering attitude.
 
 Copter Motors vs Servos
 =======================

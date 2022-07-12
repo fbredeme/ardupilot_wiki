@@ -78,9 +78,6 @@ The first 8 outputs are labelled "MAIN OUT" on the case. The next 3
 outputs are labelled CAP1 to CAP3 on the case. The CAP4 pin cannot be
 used as a PWM output.
 
-In order to use outputs 9, 10 and 11 you need to change BRD_PWM_COUNT
-to 11.
-
 The 11 PWM outputs are in 4 groups:
 
  - PWM 1, 2, 3 and 4 in group1
@@ -446,3 +443,5 @@ Acknowledgements
 Thanks to
 [PX4](https://docs.px4.io/en/flight_controller/pixhawk4_mini.html) for
 images used under the [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/)
+
+[copywiki destination="plane,copter,rover,blimp"]

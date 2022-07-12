@@ -94,7 +94,7 @@ A partial listing of frame types is show below. For a current list, just type:
 +                          + sailboat sailboat-motor+
 +--------------------------+------------------------+
 
-.. note:: It is important to select the proper frame type. This not only loads the correct parameter set, but also selects the correct physics model. In real life, for example, you can configure and setup the ArduPlane firmware for any Quadplane, but you cannot do that in SITL without having selected the exact QuadPlane frame type for the simulation to get the correct physics model.
+.. note:: It is important to select the proper frame type. This not only loads the correct parameter set, but also selects the correct physics model. In real life, for example, you can configure and setup the ArduPlane firmware for any QuadPlane, but you cannot do that in SITL without having selected the exact QuadPlane frame type for the simulation to get the correct physics model.
 
 
 Setting vehicle start location
@@ -474,6 +474,9 @@ Enable Precision Landing, and set the precision landing backend type to SITL:
    param set PLND_ENABLED 1
    param fetch
    param set PLND_TYPE 4
+   param set SIM_PLD_ENABLE 1
+   param set SIM_PLD_LAT -35.3632
+   param set SIM_PLD_LON 149.1652
 
 A rangefinder is currently required for precision landing.  Enable a simulated rangefinder:
 

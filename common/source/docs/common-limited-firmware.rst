@@ -10,7 +10,7 @@ flash memory to store the full firmware.
 For the affected autopilots, a reduced firmware is generated. This firmware omits less-commonly used features
 in order to reduce the firmware size to less than 1 MB.
 
-The missing features are listed below.
+The missing features are listed below. If you require any of these features, you can try to create a build with them in it (at the expense of other non-needed features) using the `Custom Firmware Build Server <https://custom.ardupilot.org>`__.
 
 Common to all 1MB Boards
 ========================
@@ -20,12 +20,17 @@ Exclusions for: KakuteF4, Sparky2, OMNIBUSF7V2, KakuteF7, KakuteF7 Mini, older v
 - ADSB
 - EFI Controller Support
 - External AHRS
+- FETtec ESCs
+- INA2XX Battery Monitors
+- Plane Deep Stall Landing
+- Torqeedo Motor Control
+- MAVLink frame rate control from SD file
 - INS Temperature Calibration
 - SOLO Gimbal Support
 - Visual Odometry
 - Airspeed Drag Compensation
 - Plus Code Location Support
-- Object Avoidance and Proximity Sensors
+- Object Avoidance using Proximity Sensors
 - CRSF Text Display (Telemetry is included)
 - Bootloader inclusion in main code base
 - EKF2 (EKF3 only)
@@ -60,6 +65,7 @@ Additional Exclusions for: Sparky2, OMNIBUSF7V2, KakuteF7, KakuteF7 Mini and old
       -  MSP Rangefinders
       -  Camera Mount Control
       -  OSD Parameter Editor
+      -  OSD Scrolling Sidebars
       -  Button
       -  OAPathPlanner
        
@@ -131,3 +137,5 @@ If this occurs, several possible options are available to allow temporary use of
 - Reduce the size of :ref:`LOG_FILE_BUFSIZE<LOG_FILE_BUFSIZE>` . However, lowering below 16KB can introduce small gaps in the log. This may be used temporarily to download terrain or calibrate compass.
 - Disable Terrain Following temporarily by setting :ref:`TERRAIN_ENABLE<TERRAIN_ENABLE>` to 0.
 - Disable SmartRTL on Copter by setting :ref:`SRTL_POINTS<SRTL_POINTS>` = 0.
+
+[copywiki destination="plane,copter,rover,blimp"]

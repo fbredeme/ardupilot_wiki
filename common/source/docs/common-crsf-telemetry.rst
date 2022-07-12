@@ -1,9 +1,10 @@
 .. _common-crsf-telemetry:
-
+[copywiki destination="plane,copter,rover,blimp"]
 =======================
 TBS Crossfire Telemetry
 =======================
 
+.. note:: ELRS (ExpressLRS) RC systems use the Crossfire protocol and are connected in a similar manner. However, it does not provide bi-directional telemetry like Crossfire.
 
 TBS CRSF Receivers incorporate telemetry along with RC control information in their interface to ArduPilot. ArduPilot supports native CRSF telemetry and extensions to it that allow using the :Ref:`common-frsky-yaapu`. See :ref:`common-tbs-rc` for connection and setup information.
 
@@ -31,7 +32,7 @@ ArduPilot Parameter Editor
 
 In  addition, the ArduPilot CRSF implementation provides for ArduPilot parameter adjustment, similar in function to ArduPilot's :ref:`common-paramosd` feature.
 
-If the autopilot has an active integrated OSD, this feature is automatically enabled. If not, then selecting :ref:`OSD_TYPE<OSD_TYPE>` = 4 (TX only) will enable it.
+If the autopilot has any active OSD (:ref:`OSD_TYPE<OSD_TYPE>` not equal to "0") , this feature is automatically enabled. If not, then selecting :ref:`OSD_TYPE<OSD_TYPE>` = 4 (TX only) will enable it.
 
 Selecting the Crossfire Configuration LUA script in the transmitter will show:
 

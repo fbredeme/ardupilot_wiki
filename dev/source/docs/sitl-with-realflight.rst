@@ -60,7 +60,9 @@ Connecting to Mission Planner's SITL
 - On Config/Tuning, Planner set the Layout drop-down to "Advanced"
 - On the top menu bar, select Simulation
 - From the "Model" drop-down, select "flightaxis" and push the Multirotor icon
-- on the Full Parameter List or Tree screens, on the right-side select realflight-quad and press load parameters
+- You will be asked if you want to simulate with the current developers branch code or with the current Stable code release. Select one.
+
+.. note:: it is possible to simulate with your own custom code branch of ArduPilot. See :ref:`Mission Planner SITL with Custom Code<mp-sitl-custom-code>`.
 
   .. image:: ../images/realflight-mp-sitl.jpg
     :target: ../_images/realflight-mp-sitl.jpg
@@ -76,10 +78,26 @@ If the vehicle's position is not reset, from within RealFlight:
   - press OK
   - after the vehicles position is reset, press the transmitter's "Reset" button or PC spacebar again
 
-At this point, load the parameter file for this "QuadCopterX-flightaxis" model via Mission Planner. You are now ready to arm and fly.
+At this point, load the parameter file you downloaded for this "QuadCopterX-flightaxis" model via Mission Planner. Use the Full Parameter List or Tree screens, and on the right-side, select ``Load from file`` and select the parameter file. You are now ready to arm and fly.
 
 .. note:: as with a real vehicle, sometimes loading parameters "enables" other groups of parameters which will not be set during the first load. If you get a message when loading parameters that you have enabled others, reload the parameter file to change those newly revealed parameter groups.
 
+.. _mp-sitl-custom-code:
+
+Using Your Code Branch with Mission Planner SITL and RealFlight
+---------------------------------------------------------------
+
+Instead of using the Stable or Master code branch for simulation, you can use and test your own branch, if desired. The steps are:
+
+- Start RealFlight with the desired Realflight vehicle that has been modified for use with flightaxis.
+- In your GITHUB repository (not local) push your branch to it
+- Under ACTIONS in your web GITHUB repo, select Cygwin Build, and the select branch you pushed that you want the sim to use
+- Download and unzip its build aritfacts and select the ArduXXX.elf.exe file for the vehicle type and rename it, eliminating the .elf portion to a plain .exe file and place in your Documents/Mission Planner/sitl folder in place of the existing file, if present.
+- Start the Mission Planner vehicle sim for the appropriate vehicle with the "do not download" checkbox ticked and flightaxis selected as above.
+
+The simulation will begin using your code branch. Be sure to have the parameters set/updated for the RealFlight vehicle.
+
+.. youtube:: VOnqlC-dbco
 
 Connecting to SITL running on a separate (or Virtual) machine:
 --------------------------------------------------------------

@@ -34,6 +34,7 @@ CAN/DroneCAN Power Monitor
     :maxdepth: 1
 
     CUAV CAN/DroneCAN PMU<common-can-pmu>
+    Packet Digital MPPT Solar Controller <common-packetdigital-mppt>
     Pomegranate Systems<common-pomegranate-systems-pm>
 
 I2C Power Monitor
@@ -43,6 +44,11 @@ I2C Power Monitor
     :maxdepth: 1
 
     Rotoye BatMon Smart Battery <common-smart-battery-rotoye.rst>
+
+Power Monitoring Via Telemetry Equipped BLHeli32/S ESCs
+=======================================================
+
+- See :ref:`this section<esc-telemetry-based-battery-monitor>` of the :ref:`blheli32-esc-telemetry` page
 
 Liquid Fuel Monitors
 ====================

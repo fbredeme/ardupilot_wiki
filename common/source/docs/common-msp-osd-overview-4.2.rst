@@ -4,7 +4,7 @@
 MSP OSD
 =======
 
-Ardupilot supports 2 types of MSP OSDs:
+ArduPilot supports 2 types of MSP OSDs:
 
  - Telemetry based OSDs such as DJI FPV Goggles V1/V2, DJI Goggles RE, FatShark ByteFrost, FatShark SharkByte, MWOSD, etc
  - DisplayPort (aka CANVAS MODE) based OSD's such as FatShark SharkByte (fw 09042021 and later) and MWOSD
@@ -43,7 +43,7 @@ Configuration
 
 To enable MSP OSD, set the following parameters ( example using SERIAL port 2 as the port to attach to the DJI Air unit using both TX and RX lines):
 
- - :ref:`OSD_TYPE<OSD_TYPE>` = 3
+ - :ref:`OSD_TYPE<OSD_TYPE>` = 3 if no integrated OSD is being used in order to activate the OSD code. If an integrated OSD is present and the user wishes to have both OSDs , then :ref:`OSD_TYPE<OSD_TYPE>` = 1 will activate the on-board OSD as well as providing screens for the MSP OSD function. For example, on vehicles using the DJI goggles/air system for medium range, but still running a long range VTX using the internal OSD for when the vehicle exceeds the range of the HD DJI Goggles. This configuration could use one OSD screen optimized for DJI Goggles, and another for the integrated OSD and the user can switch between them depending on which video system is being viewed.
  - :ref:`SERIAL2_PROTOCOL<SERIAL2_PROTOCOL>` = 33
  - :ref:`MSP_OPTIONS<MSP_OPTIONS>` = 0 (polling mode)
 
@@ -170,7 +170,7 @@ Features
 DisplayPort OSDs can render all the panel items supported by the ArduPilot's onboard OSD.
 Features such as multiple screen switching, multiple units and statistics are supported as well, please refer to the :ref:`onboard OSD documentation <common-osd-overview>`  for more info.
 
-By setting :ref:`MSP_OPTIONS<MSP_OPTIONS>` bit 3 to 1 one can force ArduPilot to impersonate betaflight and use a betaflight compatible font table on the remote OSD system.
+By setting :ref:`MSP_OPTIONS<MSP_OPTIONS>` bit 2 to 1 one can force ArduPilot to impersonate betaflight and use a betaflight compatible font table on the remote OSD system.
 This is required if the remote OSD system does not have an ArduPilot compatible fonts table. MWOSD already supports custom fonts and therefore does not require this hack while FatShark's SharkByte will support custom fonts in a future release.
 Default behaviour is to use the ArduPilot fonts table.
 
@@ -223,5 +223,3 @@ Video
 =====
 
 .. youtube:: gT4R3E_7Z_0
-
-[copywiki destination="plane,copter,rover,dev"]

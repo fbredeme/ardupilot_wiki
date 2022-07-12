@@ -16,6 +16,7 @@ extra modes. Most are identical to equivalent Copter modes:
     QRTL      (Mode 21) <qrtl-mode>
     QAUTOTUNE (Mode 22) <qautotune-mode>
     QACRO     (Mode 23) <qacro-mode>
+    LOITER to QLAND (mode 25) <loiter-to-qland-mode>
     AIRMODE** <airmode>
 
 ** not actually a flight mode, but rather a feature of QACRO and QSTABILIZE
@@ -36,11 +37,11 @@ described :ref:`here <quadplane-flying>`.
 
    There is also a difference in throttle channel parameters from Copter: instead of :ref:`THR_DZ<THR_DZ>` for setting the deadzone, QuadPlane uses RCn_DZ (where n is the channel mapped to throttle input). 
    The default for throttle channel deadzone is 60 (+/- 6%).
-   If your Quadplane does not hover at mid-stick (+/- 6%) in QSTABILIZE, you will need to center it using :ref:`Q_M_THST_HOVER<Q_M_THST_HOVER>` to set the throttle percentage applied at mid-stick in QSTABILIZE such that switching to QHOVER or QLOITER does not result in an altitude change. This value can be automatically learned and applied during QLOITER and QHOVER modes, by enabling :ref:`Q_M_HOVER_LEARN<Q_M_HOVER_LEARN>` .
+   If your QuadPlane does not hover at mid-stick (+/- 6%) in QSTABILIZE, you will need to center it using :ref:`Q_M_THST_HOVER<Q_M_THST_HOVER>` to set the throttle percentage applied at mid-stick in QSTABILIZE such that switching to QHOVER or QLOITER does not result in an altitude change. This value can be automatically learned and applied during QLOITER and QHOVER modes, by enabling :ref:`Q_M_HOVER_LEARN<Q_M_HOVER_LEARN>` .
 
 .. tip::
 
-   Since Quadplanes have much higher surface area than most Copters, hovering or loitering in a tail wind can be a challenge for stability. It is generally better to hover or loiter with the nose pointed into the wind, see :ref:`Weathervaning <quadplane-weathervaning>`.
+   Since QuadPlanes have much higher surface area than most Copters, hovering or loitering in a tail wind can be a challenge for stability. It is generally better to hover or loiter with the nose pointed into the wind, see :ref:`Weathervaning <quadplane-weathervaning>`.
 
 .. note::
 
@@ -50,7 +51,7 @@ described :ref:`here <quadplane-flying>`.
 Flight modes to avoid
 ---------------------
 
-The linked nature of of the vertical lift and fixed wing control in quadplanes means the autopilot always needs to know what the pilot is trying to do in terms of speed and attitude. 
+The linked nature of the vertical lift and fixed wing control in quadplanes means the autopilot always needs to know what the pilot is trying to do in terms of speed and attitude. 
 For this reason you should avoid the following flight modes in a quadplane:
 
 -  ACRO

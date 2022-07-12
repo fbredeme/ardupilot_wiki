@@ -96,7 +96,7 @@ Original V6 version
     :target: ../_images/nanov6.jpg
     :width: 450px
     
-Typical Arduplane system
+Typical ArduPlane system
 
 GPS is attached to UART6
 
@@ -137,7 +137,7 @@ Default pin values:
 
 :ref:`BATT_VOLT_MULT <BATT_VOLT_MULT>` = 11
 
-Optionally add voltage and / or current monitoring using ESC telemetry capable ESCs. See instructions :ref:`here <esc-telemetry>`.
+Optionally add voltage and / or current monitoring using ESC telemetry capable ESCs. See instructions :ref:`here <blheli32-esc-telemetry>`.
 
 
 V6.x revision
@@ -184,3 +184,5 @@ Compile ArduPilot
 
 To build your own firmware, see the instructions on setting up a build environment and compiling the source code:
 `Building the Code <https://ardupilot.org/dev/docs/building-the-code.html>`__
+
+[copywiki destination="plane,copter,rover,blimp"]

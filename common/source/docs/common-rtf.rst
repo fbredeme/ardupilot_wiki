@@ -50,7 +50,9 @@ Planes from Partners
 VTOL/QuadPlanes from Partners
 =============================
 * `CUAV - Raefly <https://store.cuav.net/shop/raefly/>`__
-* `Event38 - E400 <https://event38.com/e400-vtol-drone/?v=0a10a0b3e53b>`__
+* `CUAV - Raefly VT260 <https://store.cuav.net/shop/raefly-vt260-vtol-uav/>`__
+* `Event38 - E400 <https://event38.com/fixed-wing/e400-vtol-drone/>`__
+* `FlyDragonDroneTech - FDG30 <https://www.droneassemble.com/product/vtol-uav-6-hours-endurance-with-1kg-payload-for-survey-serveillance/>`__
 * :ref:`MakeFLyEasy - Fighter VTOL <common-makeflyeasy-fighter-vtol>`
 * `MakeFLyEasy - Freeman 2300 <https://www.aliexpress.com/item/10000223137957.html?spm=a2g0o.store_home.productList_1076398524.pic_3>`__
 * `MakeFLyEasy - Freeman 2100 <https://www.aliexpress.com/item/10000223137957.html?spm=a2g0o.store_home.productList_1076398524.pic_2>`__
@@ -58,6 +60,7 @@ VTOL/QuadPlanes from Partners
 * `SpektreWorks - Cobalt 55 E-VTOL <https://www.spektreworks.com/cobalt>`__
 * `SpektreWorks - Cobalt 55 G-VTOL <https://www.spektreworks.com/cobalt>`__
 * `SpektreWorks - Cobalt 110 G-VTOL <https://www.spektreworks.com/cobalt>`__  
+*  :ref:`Swan-K1 <common-Swan-K1>`
 
 Rovers from Partners
 ====================
@@ -77,7 +80,6 @@ Subs from Partners
 Vehicles from Non-Partners
 ==========================
 
-* `Anaconda <http://kgaviation.com/store/p11/anaconda>`__, `Believer <http://kgaviation.com/store/p13/The_Believer_.html>`__, `Stratosurfer <http://kgaviation.com/store/p16/stratosurfer>`__ and `Skyhunter <http://kgaviation.com/store/p10/skyhunter>`__ fixed-wing from `KG aviation <http://kgaviation.com/index.html>`__ (`video <https://www.youtube.com/watch?v=Yx1k8VgpHlU>`__)
 * `Aton <https://traxxas.com/products/models/heli/Aton-Plus>`__ and `Aton-Plus from traxxas <https://traxxas.com/products/models/heli/Aton-Plus>`__ (firmware loaded using an SD Card)
 * DRONEE  Easy to Use Mapping Plane Drone `DRONEE PLANE <https://dronee.aero/pages/droneeplane>`__
 * `MotoDoro Farm Mapper (Plane) <https://motodoro.com/blog/detail/00005-farm-mapper-vtol.html>`__
@@ -91,13 +93,4 @@ Vehicles from Non-Partners
 
    If you are a manufacturer of a RTF vehicle based on ArduPilot and do not appear in this list, please get in touch through one of the methods listed on our :ref:`Contact Us page <common-contact-us>`.
 
-
-.. toctree::
-   :hidden:
-    
-   MakeFLyEasy - Fighter <common-makeflyeasy-fighter-hand-throw>
-   MakeFLyEasy - Striver Mini <common-makeflyeasy-striver-mini-hand-throw>
-   MakeFLyEasy - Fighter VTOL <common-makeflyeasy-fighter-vtol>
-   MakeFLyEasy - Striver Mini VTOL <common-makeflyeasy-striver-mini-vtol>
-   
 [copywiki destination="copter,plane,rover,planner,planner2,antennatracker,dev,ardupilot,mavproxy"]
